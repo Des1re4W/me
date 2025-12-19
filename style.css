@@ -296,6 +296,7 @@ body {
         flex-direction: column;
         align-items: center;
         padding: 40px 20px;
+        max-width: 100%;
         background: linear-gradient(to bottom,
                 #3c4235 0%,
                 #3c4235 62%,
