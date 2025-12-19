@@ -6,7 +6,6 @@ body {
 .hero {
     display: flex;
     align-items: flex-start;
-    height: 100vh;
     background: linear-gradient(100deg, #3c4235 50%, #ffffff 50%);
     overflow: hidden;
 }
@@ -33,20 +32,53 @@ body {
 
 .hero-text h2 {
     font-size: 16px;
-    /* or any size you want */
     color: rgb(255, 255, 255);
-    /* optional */
 }
 
 .hero-text p {
     margin: 8px 0 16px;
 }
 
-.hero-text button {
-    padding: 8px 16px;
-    border-radius: 20px;
+.socials {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.social-btn {
+    background: transparent;
     border: none;
+    padding: 6px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+}
+
+.social-btn img {
+    margin-left: 50px;
+    width: 30px;
+    height: auto;
+    display: block;
+}
+
+.fb-btn img {
+    width: 55px;
+}
+
+.telegram-btn img {
+    width: 25px;
+}
+
+.social-btn:hover {
+    transform: scale(1.15);
+}
+
+.social-btn:active {
+    transform: scale(0.95);
 }
 
 .me-wrapper {
@@ -102,11 +134,11 @@ body {
     padding-left: 50px;
     font-family: 'Courier New', Courier, monospace;
     font-size: 21px;
-    margin-top: 500px;
+    margin-top: 460px;
 }
 
 .skills {
-    margin-top: 200px;
+    margin-top: 150px;
     margin-left: 130px;
 }
 
@@ -118,30 +150,168 @@ body {
     margin-left: 390px;
     font-size: 22px;
     line-height: 1.5;
-    /* adjust spacing between lines */
     margin-bottom: 90px;
-    /* space before next heading (Tools) */
 }
 
-/* Mobile Styles */
-/* Mobile Styles - Phones (max-width: 600px) */
-@media only screen and (max-width: 780px) {
+.rect2 {
+    padding: 10px;
+    width: 100%;
+    height: auto;
+    background: linear-gradient(76.7deg, #ded8c7 50%, #ffffff 50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.project {
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(10deg, #000000, #000000);
+    background-clip: text;
+    color: transparent;
+}
+
+.rect2 h1 {
+    margin-left: 60%;
+    margin-bottom: 150px;
+}
+
+.rect2 h2 {
+    margin-bottom: 60%;
+    margin-bottom: 150px;
+}
+
+.flex {
+    max-width: 35%;
+    font-size: 25px;
+    font-weight: Bold;
+    text-align: flex-start;
+    margin-left: 110px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    background-clip: text;
+    color: rgb(131, 6, 6);
+}
+
+.prof {
+    margin-right: 200px;
+    margin-top: 150px;
+    margin-bottom: 50px;
+}
+
+.proj {
+    width: 350px;
+    margin-left: 100px;
+    padding: 20px;
+    border-radius: 10px;
+    color: #ffffff;
+    background-color: #3c4235;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.proj-pair {
+    display: flex;
+    /* label and value side by side */
+    gap: 8px;
+    /* space between label and value */
+}
+
+.proj h2 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    width: 150px;
+    /* fixed width so all labels align */
+    text-align: left;
+}
+
+.proj p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.rowProj {
+    margin-left: 20px;
+    display: flex;
+    /* arrange buttons in a row */
+    gap: 15px;
+    /* space between buttons */
+    justify-content: flex-start;
+    /* align buttons to the left; use center or flex-end if needed */
+    margin-top: 20px;
+}
+
+.rowProj a {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    /* remove underline */
+    font-weight: bold;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.approve {
+    background-color: #28a745;
+    /* green */
+}
+
+.approve:hover {
+    background-color: #218838;
+}
+
+.reject {
+    background-color: #dc3545;
+    /* red */
+}
+
+.reject:hover {
+    background-color: #c82333;
+}
+
+.decline {
+    background-color: #ffc107;
+    /* yellow/orange */
+    color: #000;
+    /* better contrast for yellow */
+}
+
+.decline:hover {
+    background-color: #e0a800;
+}
+
+
+@media only screen and (max-width: 780px) {
     .hero {
+        display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        height: auto;
-        padding: 20px 10px;
-        background: linear-gradient(#3c4235 50%, #ffffff 50%);
+        padding: 40px 20px;
+        background: linear-gradient(to bottom,
+                #3c4235 0%,
+                #3c4235 62%,
+                #ffffff 63%,
+                #ffffff 100%);
     }
 
-    /* Hero Text */
+    .social-btn {
+        margin: 0 2px;
+    }
+
     .hero-text {
+        margin-top: 270px;
         position: static;
         transform: none;
         text-align: center;
-        margin-bottom: 20px;
         color: white;
     }
 
@@ -151,14 +321,21 @@ body {
 
     .hero-text h2,
     .hero-text p {
-        font-size: 12px;
+        font-size: 15px;
     }
 
     .me-wrapper {
-        background: linear-gradient(#ffffff 50%);
+        order: -1;
+        top: 150px;
         width: 250px;
         height: 250px;
         padding: 10px;
+        background: linear-gradient(#ffffff 50%, #ffffff 50%);
+        border-radius: 50%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .me {
@@ -169,26 +346,41 @@ body {
         background-color: white;
     }
 
+
     .aboutme {
-        font-size: 12px;
-        line-height: 1.4;
-        margin: 20px auto;
-        text-align: center;
-        max-width: 90%;
+        line-height: 1.2;
+        text-align: justify;
+        max-width: 99%;
+        padding: 20px;
+    }
+
+    .aboutme br {
+        display: none;
     }
 
     .aboutme h2 {
+        margin-bottom: auto;
         font-size: 14px;
-        margin-top: 20px;
+        margin-top: .05px;
         padding: 0;
+        text-align: justify;
+    }
+
+    .skills {
+        max-height: 90%;
+        margin: auto;
+        padding: 0 15px;
         text-align: center;
     }
 
-    /* Skills Section */
-    .skills {
-        margin: 30px auto;
-        padding: 0 15px;
-        text-align: center;
+    .skills h1 {
+        font-size: 24px;
+        font-weight: bold;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    .skills p {
+        font-size: 13px;
     }
 
     .skills h1,
@@ -200,6 +392,135 @@ body {
     .skills p {
         font-size: 14px;
         line-height: 1.4;
+        margin-bottom: 10px;
+    }
+
+    .project h1 {
+        align-items: center;
+        justify-content: start;
+    }
+
+    .rect2 {
+        max-width: 100%;
+        padding: 20px 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Remove any leftover margins from desktop */
+    .rect2 h1,
+    .project {
+        margin-left: 0 !important;
+        margin-bottom: 15px;
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .flex {
+        font-size: 14px;
+        line-height: 1.4;
+        margin: 0 auto;
+        text-align: center;
+        max-width: 95%;
+    }
+
+    .rec2Proj {
+        width: 100%;
+        max-width: 95%;
+        text-align: center;
         margin-bottom: 20px;
+    }
+
+    .project {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .flex {
+        font-size: 14px;
+        line-height: 1.4;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .prof {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        margin: 0 auto 20px auto;
+    }
+
+    .prof {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto 20px auto;
+    }
+
+    .proj {
+        width: 90%;
+        max-width: 350px;
+        padding: 15px;
+        font-size: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        text-align: start;
+        margin: 0;
+    }
+
+    .proj-pair {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 10px;
+        width: 100%;
+    }
+
+    /* Label */
+    .proj-pair h2 {
+        width: 120px;
+        font-size: 12px;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    /* Value */
+    .proj-pair p {
+        flex: 1;
+        font-size: 12px;
+        margin: 0;
+        white-space: pre-wrap;
+        /* allow line breaks for long text */
+    }
+
+
+    /* Buttons inside project card */
+    .rowProj {
+        flex-direction: row;
+        /* keep buttons in a row */
+        flex-wrap: wrap;
+        /* wrap if screen is too narrow */
+        align-items: center;
+        justify-content: center;
+        /* center buttons horizontally */
+        gap: 10px;
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    .rowProj a {
+        align-items: center;
+        width: 50%;
+        max-width: 200px;
+        text-align: center;
+        padding: 10px 15px;
+        margin: 5px;
+        font-size: 12px;
     }
 }
