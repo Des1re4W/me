@@ -290,6 +290,74 @@ body {
     background-color: #8f6640;
 }
 
+/* Contact Section */
+.rect3 {
+    width: 100%;
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(463.7deg, #f7f0f0 50%, #ebe7dd 50%);
+    padding: 60px 20px;
+    overflow-x: hidden;
+}
+
+.conts {
+    width: 100%;
+    max-width: 600px;
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.conts h1 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    color: #3c4235;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 95%;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #3c4235;
+    box-shadow: 0 0 0 3px rgba(60, 66, 53, 0.15);
+}
+
+.contact-form button {
+    margin-top: 10px;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: #3c4235;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.contact-form button:hover {
+    background: #2f352a;
+    transform: translateY(-2px);
+}
 
 @media only screen and (max-width: 780px) {
     .hero {
@@ -383,7 +451,7 @@ body {
     }
 
     .skills h1 {
-        
+
         margin-right: 9px;
         font-size: 24px;
         font-weight: bold;
