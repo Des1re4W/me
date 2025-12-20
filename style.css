@@ -290,30 +290,27 @@ body {
     background-color: #8f6640;
 }
 
-/* Contact Section */
+/* Section */
 .rect3 {
-    width: 100%;
-    min-height: 60vh;
+    min-height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(463.7deg, #f7f0f0 50%, #ebe7dd 50%);
+    background: linear-gradient(105deg, #ffffff 50%, #eba9a9 50%);
     padding: 60px 20px;
-    overflow-x: hidden;
 }
 
 .conts {
-    width: 100%;
+    width: 80%;
     max-width: 600px;
-    background: #ffffff;
+    background: #fff;
     padding: 40px 30px;
     border-radius: 16px;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-    text-align: center;
 }
 
 .conts h1 {
-    font-size: 2.2rem;
+    text-align: center;
     margin-bottom: 30px;
     color: #3c4235;
 }
@@ -321,29 +318,61 @@ body {
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
 }
 
-.contact-form input,
-.contact-form textarea {
-    width: 95%;
-    padding: 14px 16px;
+.field {
+    position: relative;
+}
+
+.field input,
+.field textarea {
+    width: 89%;
+    padding: 16px 16px 16px 45px;
     border-radius: 10px;
     border: 2px solid #ddd;
     font-size: 1rem;
-    font-family: inherit;
     outline: none;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    background: transparent;
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
+.field .icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1rem;
+    pointer-events: none;
+}
+
+.field label {
+    position: absolute;
+    left: 45px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777;
+    font-size: 0.95rem;
+    pointer-events: none;
+    transition: 0.3s ease;
+    background: #fff;
+    padding: 0 5px;
+}
+
+.field input:focus+label,
+.field textarea:focus+label,
+.field input:not(:placeholder-shown)+label,
+.field textarea:not(:placeholder-shown)+label {
+    top: -8px;
+    font-size: 0.75rem;
+    color: #3c4235;
+}
+
+.field input:focus,
+.field textarea:focus {
     border-color: #3c4235;
-    box-shadow: 0 0 0 3px rgba(60, 66, 53, 0.15);
 }
 
 .contact-form button {
-    margin-top: 10px;
     padding: 14px;
     border: none;
     border-radius: 10px;
@@ -351,12 +380,17 @@ body {
     color: #fff;
     font-size: 1rem;
     cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
 }
 
 .contact-form button:hover {
     background: #2f352a;
-    transform: translateY(-2px);
+}
+
+/* Error */
+.error {
+    color: red;
+    font-size: 0.9rem;
+    text-align: center;
 }
 
 @media only screen and (max-width: 780px) {

@@ -124,12 +124,26 @@
     <section class="rect3">
         <div class="conts">
             <h1>Contact Me</h1>
+            <form class="contact-form" action="" method="POST" onsubmit="">
+                <div class="field">
+                    <i class="icon">👤</i>
+                    <input type="text" name="name" id="name" required>
+                    <label for="name">Your Name</label>
+                </div>
+                <div class="field">
+                    <i class="icon">✉️</i>
+                    <input type="email" name="email" id="email" required>
+                    <label for="email">Your Email</label>
+                </div>
 
-            <form class="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <div class="field textarea">
+                    <i class="icon">💬</i>
+                    <textarea name="message" id="message" rows="5" required></textarea>
+                    <label for="message">Your Message</label>
+                </div>
                 <button type="submit">Send Message</button>
+                <p class="error" id="errorMsg"></p>
+                <p>This doesn't have any function yet c(:</p>
             </form>
         </div>
     </section>
