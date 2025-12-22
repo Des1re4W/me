@@ -37,17 +37,22 @@ function erase() {
 
 type(type, 2800);
 
+// Intersection Observer for sec2 & sec3
 const sections = document.querySelectorAll('.sec2, .sec3');
 
 const observer = new IntersectionObserver(
     (entries) => {
         entries.forEach(entry => {
+            // If sec3, skip adding 'swap' to body
+            const isSec3 = entry.target.classList.contains('sec3');
+
             if (entry.isIntersecting) {
-                document.body.classList.add('swap'); // optional for your swap effect
-                entry.target.classList.add('animate'); // add animate to the specific section
+                if (!isSec3) document.body.classList.add('swap'); // swap only if not sec3
+                entry.target.classList.add('animate'); // animate the section
             } else {
-                document.body.classList.remove('swap');
-                entry.target.classList.remove('animate'); // remove animate when scrolling up
+                if (!isSec3) document.body.classList.remove('swap'); // remove swap only if not sec3
+                entry.target.classList.remove('animate'); // remove animate
+                
             }
         });
     },
@@ -55,6 +60,7 @@ const observer = new IntersectionObserver(
 );
 
 sections.forEach(section => observer.observe(section));
+
 
 const navLinks = document.querySelectorAll('.header .nav-links a[href^="#"]');
 
