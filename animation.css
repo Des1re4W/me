@@ -77,17 +77,6 @@ body.page-loaded .hero-text p {
 }
 
 /* Initial state */
-.me-wrapper1 {
-    transform: translate(-50%, -50%) scaleX(-1);
-    opacity: 1;
-    transition: transform 1.5s ease, opacity 1.5s ease;
-}
-
-body.page-loaded .wrapper1 {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.5s;
-}
 
 .me-wrapper2 {
     transform: translate(-150%, -50%) scaleX(-1);
