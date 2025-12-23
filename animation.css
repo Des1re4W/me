@@ -4,6 +4,7 @@
     /* slide up */
     transition: transform .8s ease, opacity 1.2s ease;
 }
+
 body.page-loaded .head {
     opacity: 1;
     transform: translateY(0);
@@ -83,17 +84,13 @@ body.page-loaded .hero-text p {
 }
 
 .me-wrapper2 {
-    transform: translate(-150%, -50%) scaleX(-1);
+    transform: translate(-150%, -50%) scaleX(1);
     opacity: 0;
     transition: transform 1.5s ease, opacity 1.5s ease;
 }
 
 /* Sliding Animation */
-body.swap .me-wrapper1 {
-    transform: translate(150%, -50%) scaleX(-1);
-    /* slide out right */
-    opacity: 0;
-}
+
 
 body.swap .me-wrapper2 {
     transform: translate(-50%, -50%) scaleX(-1);
@@ -145,11 +142,23 @@ body.page-loaded .aboutme1 h2 {
     margin-left: 2vh;
     margin-right: 5vh;
     text-decoration: none;
-    color: #d5e6f1;
+
+    color: #0a22aa;
 }
 
 .nav-links a.active {
-    color: #0a22aa;       /* highlighted color */
+        color: #d5e6f1;
     font-weight: bold;
-    border-bottom: 2px solid #64afdbda; /* optional underline effect */
+    border-bottom: 2px solid #64afdbda;
+}
+
+.socials a:hover img {
+    transform:
+        translateY(4px) scale(1.07) rotateX(var(--rx)) rotateY(var(--ry));
+
+    box-shadow:
+        0 15px 35px rgba(0, 255, 255, 0.45),
+        inset 0 0 25px rgba(255, 255, 255, 0.25);
+
+    filter: saturate(1.4) brightness(1.15);
 }
