@@ -7,7 +7,7 @@ html {
 body {
     margin: 0;
     font-family: 'Courier New', Courier, monospace;
-    background: linear-gradient(#940fd2df 10%,#7e047ce2 50%, #3a11c1e2 100%);
+    background: linear-gradient(#940fd2df 10%, #7e047ce2 50%, #3a11c1e2 100%);
 }
 
 * {
@@ -130,12 +130,12 @@ html {
 
     background:
         radial-gradient(circle at var(--x, 50%) var(--y, 50%),
-            rgba(128, 91, 91, 0.75),
-            rgba(127, 122, 116, 0.45),
-            rgba(225, 131, 185, 0.35),
+            rgba(255, 255, 255, 0.75),
+            rgba(0, 255, 255, 0.45),
+            rgba(255, 0, 255, 0.35),
             transparent 60%),
         linear-gradient(120deg,
-            #5b196f,
+            #00f5ff,
             #ff00f7,
             #00ff9d,
             #00f5ff);
@@ -194,7 +194,7 @@ html {
 
 .aboutme1 {
     position: absolute;
-    width: 70%;
+    width: 45%;
     height: auto;
     left: 10%;
     line-height: 1.9;

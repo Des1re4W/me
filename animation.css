@@ -129,13 +129,13 @@ body.page-loaded .aboutme1 h2 {
 .sec2.animate .heroe-text {
     opacity: 1;
     transform: translateX(-50);
-    transition-delay: 0.7s;
+    transition-delay: 0.9s;
 }
 
 .sec2.animate .aboutme2 {
     opacity: 1;
     transform: translateY(0);
-    transition-delay: 0.9s;
+    transition-delay: 0.4s;
 }
 
 .header .nav-links a:hover {

@@ -48,15 +48,16 @@ const observer = new IntersectionObserver(
 
             if (entry.isIntersecting) {
                 if (!isSec3) document.body.classList.add('swap'); // swap only if not sec3
-                entry.target.classList.add('animate'); // animate the section
+                entry.target.classList.add('animate');// animate the section
             } else {
                 if (!isSec3) document.body.classList.remove('swap'); // remove swap only if not sec3
                 entry.target.classList.remove('animate'); // remove animate
+                entry.target.classList.remove('animate');
                 
             }
         });
     },
-    { threshold: 0.12 }
+    { threshold: 0.15 }
 );
 
 sections.forEach(section => observer.observe(section));
@@ -141,3 +142,29 @@ const sectionObserver = new IntersectionObserver(
 
 // Observe all sections
 sections1.forEach(section => sectionObserver.observe(section));
+
+document.querySelectorAll('.holo-btn').forEach(btn => {
+    const img = btn.querySelector('img');
+
+    btn.addEventListener('mousemove', e => {
+        const r = btn.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width;
+        const y = (e.clientY - r.top) / r.height;
+
+        // light position
+        img.style.setProperty('--x', `${x * 100}%`);
+        img.style.setProperty('--y', `${y * 100}%`);
+
+        // 3D tilt
+        img.style.setProperty('--rx', `${(0.5 - y) * 14}deg`);
+        img.style.setProperty('--ry', `${(x - 0.5) * 14}deg`);
+    });
+
+    btn.addEventListener('mouseleave', () => {
+        img.style.setProperty('--x', `50%`);
+        img.style.setProperty('--y', `50%`);
+        img.style.setProperty('--rx', `0deg`);
+        img.style.setProperty('--ry', `0deg`);
+    });
+});
+
