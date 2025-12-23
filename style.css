@@ -46,18 +46,6 @@ body {
     /* logo color */
 }
 
-.header .nav-links a {
-    margin-left: 2vh;
-    margin-right: 5vh;
-    text-decoration: none;
-    color: #0886d4;
-    font-weight: 780;
-    font-size: clamp(1.1rem, 1.8vw, 1.5625rem);
-    /* ~18px → 25px */
-    /* 25px */
-    transition: all 0.3s ease;
-}
-
 .header .logo {
     font-weight: bold;
 }
