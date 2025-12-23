@@ -52,7 +52,7 @@ const observer = new IntersectionObserver(
             } else {
                 if (!isSec3) document.body.classList.remove('swap'); // remove swap only if not sec3
                 entry.target.classList.remove('animate'); // remove animate
-                
+
             }
         });
     },
@@ -141,3 +141,15 @@ const sectionObserver = new IntersectionObserver(
 
 // Observe all sections
 sections1.forEach(section => sectionObserver.observe(section));
+function checkScreen() {
+    if (window.innerWidth <= 768) {
+        document.getElementById('desktop-css').disabled = true;
+        document.getElementById('mobile-css').disabled = false;
+    } else {
+        document.getElementById('desktop-css').disabled = false;
+        document.getElementById('mobile-css').disabled = true;
+    }
+}
+
+window.addEventListener('resize', checkScreen);
+window.addEventListener('load', checkScreen);
