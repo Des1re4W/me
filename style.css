@@ -204,6 +204,7 @@ html {
 .aboutme1 {
     position: absolute;
     width: 70%;
+    height: auto;
     left: 10%;
     line-height: 1.9;
     top: 60vh;
