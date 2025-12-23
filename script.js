@@ -100,21 +100,13 @@ const observer1 = new IntersectionObserver(
     (entries, observer1) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Add swap effect to body
-                document.body.classList.add('swap');
-                // Add animate class to sec3
                 entry.target.classList.add('animate');
-
-                // Animate letters
                 h1.querySelectorAll("span").forEach(span => {
                     span.style.opacity = 1;
                     span.style.transform = "translateX(0)";
                 });
             } else {
-                // Remove swap effect when scrolling up
                 entry.target.classList.remove('animate');
-                document.body.classList.add('swap');
-                // Optional: reverse letter animation
                 h1.querySelectorAll("span").forEach((span, index) => {
                     span.style.opacity = 0;
                     span.style.transform = index % 2 === 0 ? "translateX(-50px)" : "translateX(50px)";
@@ -144,7 +136,7 @@ const sectionObserver = new IntersectionObserver(
             }
         });
     },
-    { threshold: 0.3 } // trigger when 30% of section is visible
+    { threshold: 0.4 } // trigger when 30% of section is visible
 );
 
 // Observe all sections
