@@ -383,7 +383,7 @@ html {
 }
 
 .hobbies {
-    position: relative;
+    position: absolute;
     align-items: center;
     display: flex;
     height: 200vh;

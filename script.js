@@ -93,7 +93,6 @@ text.split("").forEach((letter, index) => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Boxes observer with threshold 0.45
     const boxes = document.querySelectorAll(".box, .box1, .box2");
     const boxesObserver = new IntersectionObserver(
         entries => {
@@ -105,11 +104,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
         },
-        { threshold: 0.45 }
+        { threshold: 0.8 }
     );
     boxes.forEach(box => boxesObserver.observe(box));
 
-    // Text observer with threshold 0.6 (example: higher threshold)
     const textObserver = new IntersectionObserver(
         entries => {
             entries.forEach(entry => {
@@ -119,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         span.style.opacity = 1;
                         span.style.transform = "translateX(0)";
                     });
-                } else {
+                } else{
                     h1.classList.remove("animate");
                     h1.querySelectorAll("span").forEach((span, index) => {
                         span.style.opacity = 0;
@@ -128,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
         },
-        { threshold: 0.6 }  // different threshold for text animation
+        { threshold: 0.1 } 
     );
     textObserver.observe(h1);
 });
