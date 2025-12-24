@@ -386,6 +386,7 @@ html {
     position: relative;
     align-items: center;
     display: flex;
+    height: 200vh;
     flex-direction: column;
     align-items: center;
     font-size: clamp(1.6rem, 7vw, 2.5rem);
