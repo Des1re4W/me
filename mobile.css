@@ -35,10 +35,6 @@
         z-index: 10;
     }
 
-    .socials {
-        justify-content: center;
-    }
-
     /* Profile Image */
     .me-wrapper2 {
         left: 35%;
@@ -158,41 +154,37 @@
 
 
   /* Remove margin on all boxes */
-    /* Stack layout vertically on mobile */
-  .layout {
-    flex-direction: column;
-    height: auto; /* let height adapt */
-    gap: 20px;    /* reduce gap between left and right columns */
-    align-items: center;
+  
+  .box {
+    margin: 0;
   }
 
-  /* Hide the divider on mobile */
+  /* Reset layout height and stack vertically */
+  .layout {
+    height: auto;           /* allow layout to expand */
+    flex-direction: column; /* stack columns vertically */
+    gap: 20px;
+  }
+
+  /* Hide divider on mobile */
   .divider {
     display: none;
   }
 
-  /* Remove large top margins on the boxes */
-  .left .box,
-  .right .box1,
-  .right .box2 {
-    margin-top: 20px !important; /* small margin for spacing */
-    width: 90vw;                 /* make boxes responsive */
-    max-width: 300px;
-    height: auto;
-    transform: translateX(0);    /* remove horizontal translation on mobile */
+  /* Smaller box sizes and reset margins */
+  .left .box {
+    width: 40px;
+    height: 40px;
+    margin-top: 20px;
+    transform: translateX(0); /* remove desktop translation */
   }
 
-  /* Reduce gap between boxes on right column */
+  .right .box1,
+  .right .box2{
+    margin-top: 0;
+  }
+  /* Smaller gap between right column boxes */
   .right {
     gap: 15px;
-    width: 90vw;
-    max-width: 300px;
-  }
-
-  /* Center left column */
-  .left {
-    width: 90vw;
-    max-width: 300px;
-    justify-content: center;
   }
 }

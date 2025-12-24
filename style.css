@@ -37,15 +37,7 @@ body {
     font-size: clamp(2rem, 3vw, 2.5rem);
 }
 
-.header .nav-links a {
-    margin-left: 2vh;
-    margin-right: 5vh;
-    text-decoration: none;
-    color: #0886d4;
-    font-weight: 780;
-    font-size: clamp(1.1rem, 1.8vw, 1.5625rem);
-    transition: all 0.3s ease;
-}
+
 
 .header .logo {
     font-weight: bold;
@@ -106,35 +98,6 @@ html {
 
 
 
-.socials img {
-    width: clamp(66px, 8vw, 58px);
-    height: clamp(46px, 5.5vw, 38px);
-    padding: 10px;
-    border-radius: 14px;
-    object-fit: contain;
-
-    background:
-        radial-gradient(circle at var(--x, 50%) var(--y, 50%),
-            rgba(255, 255, 255, 0.75),
-            rgba(0, 255, 255, 0.45),
-            rgba(255, 0, 255, 0.35),
-            transparent 60%),
-        linear-gradient(120deg,
-            #00f5ff,
-            #ff00f7,
-            #00ff9d,
-            #00f5ff);
-
-    background-size: 200% 200%, 300% 300%;
-    background-position: center, 0% 50%;
-
-    background-blend-mode: screen;
-
-    transition:
-        transform 0.15s ease,
-        box-shadow 0.15s ease,
-        filter 0.15s ease;
-}
 
 .me-wrapper2 {
     position: absolute;

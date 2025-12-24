@@ -93,6 +93,7 @@ text.split("").forEach((letter, index) => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+    // Boxes observer with threshold 0.45
     const boxes = document.querySelectorAll(".box, .box1, .box2");
     const boxesObserver = new IntersectionObserver(
         entries => {
@@ -104,10 +105,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
         },
-        { threshold: 0.8 }
+        { threshold: 0.1 }
     );
     boxes.forEach(box => boxesObserver.observe(box));
 
+    // Text observer with threshold 0.6 (example: higher threshold)
     const textObserver = new IntersectionObserver(
         entries => {
             entries.forEach(entry => {
@@ -126,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
         },
-        { threshold: 0.1 } 
+        { threshold: 0.1 }  // different threshold for text animation
     );
     textObserver.observe(h1);
 });

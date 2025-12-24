@@ -33,7 +33,6 @@ body.page-loaded .study {
     opacity: 1;
     transform: translateY(0);
     transition-delay: 1.4s;
-    /* appears slightly after socials */
 }
 
 /* Initial hidden states */
@@ -146,18 +145,70 @@ body.page-loaded .aboutme1 h2 {
     color: #0a22aa;
 }
 
-.nav-links a.active {
-        color: #d5e6f1;
-    font-weight: bold;
-    border-bottom: 2px solid #64afdbda;
+.header .nav-links a {
+    margin-left: 2vh;
+    margin-right: 5vh;
+    text-decoration: none;
+    color: #0886d4;
+    font-weight: 780;
+    font-size: clamp(1.1rem, 1.8vw, 1.5625rem);
+    transition: all 0.3s ease;
 }
 
-.socials a:hover img {
+
+.socials .holo-btn {
+    display: inline-block;
+    perspective: 900px;
+}
+
+/* Image = the 3D object */
+.socials img {
+    width: clamp(42px, 6vw, 56px);
+    height: clamp(42px, 6vw, 56px);
+    padding: 10px;
+    border-radius: 16px;
+    object-fit: contain;
+
+    transform-style: preserve-3d;
+
+    /* HOLO BACKGROUND */
+    background:
+        radial-gradient(circle at var(--x, 50%) var(--y, 50%),
+            rgba(255, 255, 255, 0.9),
+            rgba(0, 255, 255, 0.5),
+            rgba(255, 0, 255, 0.4),
+            transparent 65%),
+        linear-gradient(120deg,
+            #00f5ff,
+            #ff00f7,
+            #00ff9d,
+            #00f5ff);
+
+    background-size: 200% 200%, 300% 300%;
+    background-blend-mode: screen;
+
+    /* Base transform */
     transform:
-        translateY(4px) scale(1.07) rotateX(var(--rx)) rotateY(var(--ry));
+        translateZ(0) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) scale(1);
+
+    transition:
+        transform 0.12s ease-out,
+        filter 0.12s ease-out,
+        box-shadow 0.12s ease-out;
 
     box-shadow:
-        0 15px 35px rgba(0, 255, 255, 0.45),
+        0 8px 18px rgba(0, 0, 0, 0.25);
+
+    will-change: transform, background-position;
+}
+
+/* Hover = lift + glow */
+.socials a:hover img {
+    transform:
+        translateZ(25px) rotateX(var(--rx)) rotateY(var(--ry)) scale(1.08);
+
+    box-shadow:
+        0 20px 45px rgba(0, 255, 255, 0.45),
         inset 0 0 25px rgba(255, 255, 255, 0.25);
 
     filter: saturate(1.4) brightness(1.15);
@@ -170,6 +221,7 @@ body.page-loaded .aboutme1 h2 {
     opacity: 1;
     transform: translateY(-50px);
 }
+
 .hobbies.animate .box1 {
     transition-delay: 0.2s;
 }
