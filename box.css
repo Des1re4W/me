@@ -11,7 +11,7 @@
     width: 14px;
     min-height: 100%;
     border-radius: 50px;
-    background: #800419;
+    background: linear-gradient(to bottom, #bd2dca, #c44894);
 }
 
 /* Columns */
@@ -36,6 +36,11 @@
     object-fit: cover;
     opacity: 0;
     transition: opacity 0.8s ease, transform 1.2s ease;
+}
+
+.box {
+    margin-top: 1vh;
+    /* 2% of viewport height */
 }
 
 /* Initial animation offsets */
@@ -74,7 +79,9 @@
     margin-top: 12px;
     text-align: center;
     line-height: 1.4;
-    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: #bddfed;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 3s ease, transform 1.5s ease;
