@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         document.body.classList.add('page-loaded');
-    }, 100);
+    }, 100); // slight delay for smoother rendering
 });
 
 // Typewriter effect
@@ -9,7 +9,6 @@ const typewriterElement = document.getElementById("typewriter");
 const phrasesList = ["Machine Learning", "Blender 3D Models"];
 const typingSpeed = 70;
 const pauseTime = 1000;
-
 let currentPhraseIndex = 0;
 let currentLetterIndex = 0;
 
@@ -36,6 +35,29 @@ function erase() {
 
 type();
 
+// Sections animation
+const animatedSections = document.querySelectorAll('.sec1, .sec2, .sec3');
+const sectionObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach(entry => {
+            const target = entry.target;
+            if (entry.isIntersecting) {
+                if (target.classList.contains('sec2')) {
+                    document.body.classList.add('swap'); // only swap for sec2
+                }
+                target.classList.add('animate1');
+            } else {
+                if (target.classList.contains('sec2')) {
+                    document.body.classList.remove('swap');
+                }
+                target.classList.remove('animate1');
+            }
+        });
+    },
+    { threshold: 0.4 }
+);
+animatedSections.forEach(section => sectionObserver.observe(section));
+
 // Navigation smooth scroll
 const navLinks = document.querySelectorAll('.header .nav-links a[href^="#"]');
 navLinks.forEach(link => {
@@ -47,6 +69,26 @@ navLinks.forEach(link => {
         }
     });
 });
+
+// Active nav link highlighting
+const sectionNavObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+        });
+    },
+    { threshold: 0.4 }
+);
+animatedSections.forEach(section => sectionNavObserver.observe(section));
 
 // Responsive CSS switch
 function handleScreenResize() {
@@ -66,6 +108,7 @@ const hobbiesElement = document.getElementById("hobbies-text");
 const hobbiesText = hobbiesElement.textContent;
 hobbiesElement.textContent = "";
 
+// Wrap letters in spans
 hobbiesText.split("").forEach((letter, index) => {
     const span = document.createElement("span");
     span.textContent = letter;
@@ -76,37 +119,26 @@ hobbiesText.split("").forEach((letter, index) => {
     hobbiesElement.appendChild(span);
 });
 
-// Boxes
+// Boxes animation (animate individually based on visibility)
 const boxes = document.querySelectorAll(".box, .box1, .box2");
-
-// Sections
-const animatedSections = document.querySelectorAll('.sec1, .sec2, .sec3');
-
-// Unified Intersection Observer
-const unifiedObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        const target = entry.target;
-
-        // Section animation + body swap
-        if (target.classList.contains('sec1') || target.classList.contains('sec2') || target.classList.contains('sec3')) {
-            const isSec3 = target.classList.contains('sec3');
+const boxesObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach(entry => {
             if (entry.isIntersecting) {
-                target.classList.add('animate');
-                if (!isSec3) document.body.classList.add('swap');
-
-                // Active nav link
-                const id = target.getAttribute('id');
-                navLinks.forEach(link => {
-                    link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-                });
+                entry.target.classList.add('animate'); // animate individual box
             } else {
-                target.classList.remove('animate');
-                if (!isSec3) document.body.classList.remove('swap');
+                entry.target.classList.remove('animate'); // optional repeat animation
             }
-        }
+        });
+    },
+    { threshold: 0.1 }
+);
+boxes.forEach(box => boxesObserver.observe(box));
 
-        // Hobbies animation
-        if (target === hobbiesElement) {
+// Hobbies letters animation
+const hobbiesObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach(entry => {
             const spans = hobbiesElement.querySelectorAll("span");
             if (entry.isIntersecting) {
                 hobbiesElement.classList.add('animate');
@@ -121,35 +153,24 @@ const unifiedObserver = new IntersectionObserver((entries) => {
                     span.style.transform = index % 2 === 0 ? "translateX(-50px)" : "translateX(50px)";
                 });
             }
-        }
-
-        // Boxes animation
-        if (target.classList.contains('box') || target.classList.contains('box1') || target.classList.contains('box2')) {
-            target.classList.toggle('animate', entry.isIntersecting);
-        }
-    });
-}, { threshold: 0.1 });
-
-// Observe all targets
-animatedSections.forEach(section => unifiedObserver.observe(section));
-boxes.forEach(box => unifiedObserver.observe(box));
-unifiedObserver.observe(hobbiesElement);
+        });
+    },
+    { threshold: 0.1 }
+);
+hobbiesObserver.observe(hobbiesElement);
 
 // Holo button hover effect
 document.querySelectorAll('.holo-btn').forEach(btn => {
     const img = btn.querySelector('img');
-
     btn.addEventListener('mousemove', e => {
         const rect = btn.getBoundingClientRect();
         const x = (e.clientX - rect.left) / rect.width;
         const y = (e.clientY - rect.top) / rect.height;
-
         img.style.setProperty('--x', `${x * 100}%`);
         img.style.setProperty('--y', `${y * 100}%`);
         img.style.setProperty('--rx', `${(0.5 - y) * 14}deg`);
         img.style.setProperty('--ry', `${(x - 0.5) * 14}deg`);
     });
-
     btn.addEventListener('mouseleave', () => {
         img.style.setProperty('--x', `50%`);
         img.style.setProperty('--y', `50%`);

@@ -1,7 +1,6 @@
 .head {
     opacity: 0;
     transform: translateY(-50px);
-    /* slide up */
     transition: transform .8s ease, opacity 1.2s ease;
 }
 
@@ -9,24 +8,19 @@ body.page-loaded .head {
     opacity: 1;
     transform: translateY(0);
     transition-delay: 1s;
-    /* appears after hero-text */
 }
 
-/* Initial hidden state */
 .socials,
 .study {
     opacity: 0;
     transform: translateX(50px);
-    /* slide right */
     transition: transform .8s ease, opacity 1.2s ease;
 }
 
-/* Triggered on page load */
 body.page-loaded .socials {
     opacity: 1;
     transform: translateY(0);
     transition-delay: 1s;
-    /* appears after hero-text */
 }
 
 body.page-loaded .study {
@@ -35,29 +29,24 @@ body.page-loaded .study {
     transition-delay: 1.4s;
 }
 
-/* Initial hidden states */
 .hero-text h1 {
     opacity: 0;
     transform: translateX(-50px);
-    /* slide from left */
     transition: transform 1.2s cubic-bezier(0.65, 0, 0.35, 1), opacity 1.2s ease;
 }
 
 .hero-text h2 {
     opacity: 0;
     transform: translateY(-50px);
-    /* slide from top */
     transition: transform 1.2s cubic-bezier(0.65, 0, 0.35, 1), opacity 1.2s ease;
 }
 
 .hero-text p {
     opacity: 0;
     transform: translateX(50px);
-    /* slide from right */
     transition: transform 1.1s cubic-bezier(0.65, 0, 0.35, 1), opacity 1.2s ease;
 }
 
-/* Triggered on page load */
 body.page-loaded .hero-text h1 {
     opacity: 1;
     transform: translateX(0);
@@ -76,31 +65,24 @@ body.page-loaded .hero-text p {
     transition-delay: 0.8s;
 }
 
-/* Initial state */
 .me-wrapper1 {
     opacity: 1;
     transition: transform 1.5s ease, opacity 1.5s ease;
 }
 
 .me-wrapper2 {
-    transform: translate(-150%, -50%) scaleX(1);
     opacity: 0;
     transition: transform 1.5s ease, opacity 1.5s ease;
 }
 
-/* Sliding Animation */
-
 
 body.swap .me-wrapper2 {
-    transform: translate(-50%, -50%) scaleX(-1);
-    /* slide in from left */
     opacity: 1;
 }
 
 .aboutme1 h2 {
     opacity: 0;
     transform: translateX(-50px);
-    /* slide from top */
     transition: transform 1.2s cubic-bezier(0.1, 0, 0.35, 1), opacity 1.9s ease;
 }
 
@@ -110,28 +92,25 @@ body.page-loaded .aboutme1 h2 {
     transition-delay: 0.5s;
 }
 
-/* Initial hidden state */
 .sec2 .heroe-text {
     opacity: 0;
     transform: translateY(-50px);
-    /* slide up from below */
     transition: transform 1s ease, opacity 1s ease;
 }
 
 .sec2 .aboutme2 {
     opacity: 0;
     transform: translateY(50px);
-    /* slide up from below */
     transition: transform 1s ease, opacity 1.3s ease;
 }
 
-.sec2.animate .heroe-text {
+.sec2.animate1 .heroe-text {
     opacity: 1;
     transform: translateX(-50);
     transition-delay: 0.9s;
 }
 
-.sec2.animate .aboutme2 {
+.sec2.animate1 .aboutme2 {
     opacity: 1;
     transform: translateY(0);
     transition-delay: 0.4s;
@@ -157,10 +136,8 @@ body.page-loaded .aboutme1 h2 {
 
 .nav-links a.active {
     color: #cdc9d7;
-    /* highlighted color */
     font-weight: bold;
     border-bottom: 2px solid #f989fd7c;
-    /* optional underline effect */
 }
 
 .socials .holo-btn {
@@ -168,7 +145,6 @@ body.page-loaded .aboutme1 h2 {
     perspective: 900px;
 }
 
-/* Image = the 3D object */
 .socials img {
     width: clamp(42px, 6vw, 56px);
     height: clamp(42px, 6vw, 56px);
@@ -176,9 +152,6 @@ body.page-loaded .aboutme1 h2 {
     border-radius: 16px;
     object-fit: contain;
 
-    transform-style: preserve-3d;
-
-    /* HOLO BACKGROUND */
     background:
         radial-gradient(circle at var(--x, 50%) var(--y, 50%),
             rgba(255, 255, 255, 0.9),
@@ -194,7 +167,6 @@ body.page-loaded .aboutme1 h2 {
     background-size: 200% 200%, 300% 300%;
     background-blend-mode: screen;
 
-    /* Base transform */
     transform:
         translateZ(0) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) scale(1);
 
@@ -209,7 +181,6 @@ body.page-loaded .aboutme1 h2 {
     will-change: transform, background-position;
 }
 
-/* Hover = lift + glow */
 .socials a:hover img {
     transform:
         translateZ(25px) rotateX(var(--rx)) rotateY(var(--ry)) scale(1.08);
