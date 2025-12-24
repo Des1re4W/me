@@ -4,18 +4,19 @@ window.addEventListener('DOMContentLoaded', () => {
     }, 100);
 });
 
-const phrases = ["Machine Learning", "Blender 3D Models"];
-const typewriter = document.getElementById("typewriter");
+// Typewriter effect
+const typewriterElement = document.getElementById("typewriter");
+const phrasesList = ["Machine Learning", "Blender 3D Models"];
 const typingSpeed = 70;
 const pauseTime = 1000;
 
-let phraseIndex = 0;
-let letterIndex = 0;
+let currentPhraseIndex = 0;
+let currentLetterIndex = 0;
 
 function type() {
-    if (letterIndex < phrases[phraseIndex].length) {
-        typewriter.textContent += phrases[phraseIndex][letterIndex];
-        letterIndex++;
+    if (currentLetterIndex < phrasesList[currentPhraseIndex].length) {
+        typewriterElement.textContent += phrasesList[currentPhraseIndex][currentLetterIndex];
+        currentLetterIndex++;
         setTimeout(type, typingSpeed);
     } else {
         setTimeout(erase, pauseTime);
@@ -23,179 +24,128 @@ function type() {
 }
 
 function erase() {
-    if (letterIndex > 0) {
-        typewriter.textContent = phrases[phraseIndex].slice(0, letterIndex - 1);
-        letterIndex--;
+    if (currentLetterIndex > 0) {
+        typewriterElement.textContent = phrasesList[currentPhraseIndex].slice(0, currentLetterIndex - 1);
+        currentLetterIndex--;
         setTimeout(erase, typingSpeed);
     } else {
-        phraseIndex = (phraseIndex + 1) % phrases.length;
+        currentPhraseIndex = (currentPhraseIndex + 1) % phrasesList.length;
         setTimeout(type, typingSpeed);
     }
 }
 
-type(type, 2800);
+type();
 
-// Intersection Observer for sec2 & sec3
-const sections = document.querySelectorAll('.sec2, .sec3');
-
-const observer = new IntersectionObserver(
-    (entries) => {
-        entries.forEach(entry => {
-            const isSec3 = entry.target.classList.contains('sec3');
-
-            if (entry.isIntersecting) {
-                if (!isSec3) document.body.classList.add('swap');
-                entry.target.classList.add('animate');
-            } else {
-                if (!isSec3) document.body.classList.remove('swap');
-                entry.target.classList.remove('animate'); 
-                entry.target.classList.remove('animate');
-
-            }
-        });
-    },
-    { threshold: 0.15 }
-);
-
-sections.forEach(section => observer.observe(section));
-
-
+// Navigation smooth scroll
 const navLinks = document.querySelectorAll('.header .nav-links a[href^="#"]');
-
 navLinks.forEach(link => {
     link.addEventListener('click', function (e) {
         e.preventDefault();
-
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+        const targetSection = document.querySelector(this.getAttribute('href'));
+        if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     });
 });
 
-// hobbies
-const h1 = document.getElementById("hobbies-text");
-const text = h1.textContent;
-h1.textContent = ""; 
+// Responsive CSS switch
+function handleScreenResize() {
+    if (window.innerWidth <= 768) {
+        document.getElementById('desktop-css').disabled = true;
+        document.getElementById('mobile-css').disabled = false;
+    } else {
+        document.getElementById('desktop-css').disabled = false;
+        document.getElementById('mobile-css').disabled = true;
+    }
+}
+window.addEventListener('resize', handleScreenResize);
+window.addEventListener('load', handleScreenResize);
 
-// Wrap each letter in a span
-text.split("").forEach((letter, index) => {
+// Hobbies text animation
+const hobbiesElement = document.getElementById("hobbies-text");
+const hobbiesText = hobbiesElement.textContent;
+hobbiesElement.textContent = "";
+
+hobbiesText.split("").forEach((letter, index) => {
     const span = document.createElement("span");
     span.textContent = letter;
     span.style.display = "inline-block";
     span.style.opacity = 0;
-    span.style.transform = index % 2 === 0 ? "translateX(-50px)" : "translateX(50px)"; // alternate left/right
+    span.style.transform = index % 2 === 0 ? "translateX(-50px)" : "translateX(50px)";
     span.style.transition = `transform 0.5s ease ${index * 0.1}s, opacity 0.5s ease ${index * 0.1}s`;
-    h1.appendChild(span);
+    hobbiesElement.appendChild(span);
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    // Boxes observer with threshold 0.45
-    const boxes = document.querySelectorAll(".box, .box1, .box2");
-    const boxesObserver = new IntersectionObserver(
-        entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("animate");
-                } else {
-                    entry.target.classList.remove("animate");
-                }
-            });
-        },
-        { threshold: 0.1 }
-    );
-    boxes.forEach(box => boxesObserver.observe(box));
+// Boxes
+const boxes = document.querySelectorAll(".box, .box1, .box2");
 
-    // Text observer with threshold 0.6 (example: higher threshold)
-    const textObserver = new IntersectionObserver(
-        entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    h1.classList.add("animate");
-                    h1.querySelectorAll("span").forEach(span => {
-                        span.style.opacity = 1;
-                        span.style.transform = "translateX(0)";
-                    });
-                } else{
-                    h1.classList.remove("animate");
-                    h1.querySelectorAll("span").forEach((span, index) => {
-                        span.style.opacity = 0;
-                        span.style.transform = index % 2 === 0 ? "translateX(-50px)" : "translateX(50px)";
-                    });
-                }
-            });
-        },
-        { threshold: 0.1 }  // different threshold for text animation
-    );
-    textObserver.observe(h1);
-});
+// Sections
+const animatedSections = document.querySelectorAll('.sec1, .sec2, .sec3');
 
+// Unified Intersection Observer
+const unifiedObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        const target = entry.target;
 
-
-
-// Intersection Observer
-const observer1 = new IntersectionObserver(
-    (entries, observer1) => {
-        entries.forEach(entry => {
+        // Section animation + body swap
+        if (target.classList.contains('sec1') || target.classList.contains('sec2') || target.classList.contains('sec3')) {
+            const isSec3 = target.classList.contains('sec3');
             if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
-                h1.querySelectorAll("span").forEach(span => {
+                target.classList.add('animate');
+                if (!isSec3) document.body.classList.add('swap');
+
+                // Active nav link
+                const id = target.getAttribute('id');
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+                });
+            } else {
+                target.classList.remove('animate');
+                if (!isSec3) document.body.classList.remove('swap');
+            }
+        }
+
+        // Hobbies animation
+        if (target === hobbiesElement) {
+            const spans = hobbiesElement.querySelectorAll("span");
+            if (entry.isIntersecting) {
+                hobbiesElement.classList.add('animate');
+                spans.forEach(span => {
                     span.style.opacity = 1;
                     span.style.transform = "translateX(0)";
                 });
             } else {
-                entry.target.classList.remove('animate');
-                h1.querySelectorAll("span").forEach((span, index) => {
+                hobbiesElement.classList.remove('animate');
+                spans.forEach((span, index) => {
                     span.style.opacity = 0;
                     span.style.transform = index % 2 === 0 ? "translateX(-50px)" : "translateX(50px)";
                 });
             }
-        });
-    },
-    { threshold: 0.4 } 
-);
+        }
 
-observer1.observe(sec3);
+        // Boxes animation
+        if (target.classList.contains('box') || target.classList.contains('box1') || target.classList.contains('box2')) {
+            target.classList.toggle('animate', entry.isIntersecting);
+        }
+    });
+}, { threshold: 0.1 });
 
+// Observe all targets
+animatedSections.forEach(section => unifiedObserver.observe(section));
+boxes.forEach(box => unifiedObserver.observe(box));
+unifiedObserver.observe(hobbiesElement);
 
-
-const sections1 = document.querySelectorAll('.sec1, .sec2, .sec3');
-const navLinks1 = document.querySelectorAll('.header .nav-links a[href^="#"]');
-
-const sectionObserver = new IntersectionObserver(
-    (entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                navLinks1.forEach(link => {
-                    if (link.getAttribute('href') === `#${id}`) {
-                        link.classList.add('active');
-                    } else {
-                        link.classList.remove('active');
-                    }
-                });
-            }
-        });
-    },
-    { threshold: 0.4 }
-);
-
-sections1.forEach(section => sectionObserver.observe(section));
-
+// Holo button hover effect
 document.querySelectorAll('.holo-btn').forEach(btn => {
     const img = btn.querySelector('img');
 
     btn.addEventListener('mousemove', e => {
-        const r = btn.getBoundingClientRect();
-        const x = (e.clientX - r.left) / r.width;
-        const y = (e.clientY - r.top) / r.height;
+        const rect = btn.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width;
+        const y = (e.clientY - rect.top) / rect.height;
 
         img.style.setProperty('--x', `${x * 100}%`);
         img.style.setProperty('--y', `${y * 100}%`);
-
         img.style.setProperty('--rx', `${(0.5 - y) * 14}deg`);
         img.style.setProperty('--ry', `${(x - 0.5) * 14}deg`);
     });
@@ -207,4 +157,3 @@ document.querySelectorAll('.holo-btn').forEach(btn => {
         img.style.setProperty('--ry', `0deg`);
     });
 });
-

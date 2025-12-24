@@ -155,6 +155,13 @@ body.page-loaded .aboutme1 h2 {
     transition: all 0.3s ease;
 }
 
+.nav-links a.active {
+    color: #cdc9d7;
+    /* highlighted color */
+    font-weight: bold;
+    border-bottom: 2px solid #f989fd7c;
+    /* optional underline effect */
+}
 
 .socials .holo-btn {
     display: inline-block;
