@@ -120,20 +120,21 @@ hobbiesText.split("").forEach((letter, index) => {
 });
 
 // Boxes animation (animate individually based on visibility)
-const boxes = document.querySelectorAll(".box, .box1, .box2");
-const boxesObserver = new IntersectionObserver(
-    (entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate'); // animate individual box
-            } else {
-                entry.target.classList.remove('animate'); // optional repeat animation
-            }
-        });
-    },
-    { threshold: 0.1 }
-);
-boxes.forEach(box => boxesObserver.observe(box));
+const elements = document.querySelectorAll(".box, .box1, .box2, .games, .explore, .cards, .imagine");
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+        } else {
+            // Optional: remove animation when scrolling out
+            entry.target.classList.remove('animate');
+        }
+    });
+}, { threshold: 0.1 });
+
+// Observe all elements
+elements.forEach(el => observer.observe(el));
 
 // Hobbies letters animation
 const hobbiesObserver = new IntersectionObserver(

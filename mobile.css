@@ -188,8 +188,6 @@
 
     .left .box {
         margin-top: 0 !important;
-        width: 40px;
-        height: 40px;
         margin-top: 8px;
         /* reduce spacing */
         transform: translateX(0);

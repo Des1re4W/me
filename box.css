@@ -3,13 +3,13 @@
     align-items: flex-start;
     justify-content: center;
     margin-top: 10vh;
-    gap: 30px;
+    gap: 40px;
 }
 
 /* Divider */
 .divider {
-    height: 150vh;
-    width: 17px;
+    width: 14px;
+    min-height: 100%;
     border-radius: 50px;
     background: #800419;
 }
@@ -18,41 +18,34 @@
 .left,
 .right {
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
-}
-
-.right {
     flex-direction: column;
-    gap: 50px;
+    align-items: center;
 }
 
-/* Boxes initial state */
+/* Right column spacing */
+.right {
+    gap: 80px;
+}
+
+/* Boxes */
+.box,
+.box1,
+.box2 {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 1.2s ease;
+}
+
+/* Initial animation offsets */
 .left .box {
-    width: 300px;
-    height: 300px;
-    margin-top: 360px;
-    opacity: 0;
     transform: translateX(-120px);
-    transition: opacity 0.8s ease, transform 1.2s ease;
 }
 
-.right .box1 {
-    margin-top: 35px;
-    width: 300px;
-    height: 300px;
-    opacity: 0;
-    transform: translateX(120px);
-    transition: opacity 0.8s ease, transform 1.2s ease;
-}
-
+.right .box1,
 .right .box2 {
-    margin-top: 285px;
-    width: 300px;
-    height: 300px;
-    opacity: 0;
     transform: translateX(120px);
-    transition: opacity 0.8s ease, transform 1.6s ease;
 }
 
 /* Animate state */
@@ -63,10 +56,26 @@
     transform: translate(0);
 }
 
-/* Hover */
+/* Hover effect */
 .box:hover,
 .box1:hover,
 .box2:hover {
     transform: translateY(-10px) scale(1.03);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Memo text */
+.games,
+.explore,
+.cards,
+.imagine {
+    font-size: 13px;
+    max-width: 300px;
+    margin-top: 12px;
+    text-align: center;
+    line-height: 1.4;
+    color: #ffffff;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 3s ease, transform 1.5s ease;
 }

@@ -207,3 +207,11 @@ body.page-loaded .aboutme1 h2 {
 .hobbies.animate .box2 {
     transition-delay: 0.5s;
 }
+
+.games.animate,
+.explore.animate,
+.cards.animate,
+.imagine.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
