@@ -17,13 +17,9 @@ body {
 
 .header .head {
     position: fixed;
-    /* keep it fixed at the top */
     top: 0;
-    /* align to top */
     left: 0;
-    /* align to left */
     width: 100%;
-    /* full width */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -31,9 +27,7 @@ body {
     list-style: none;
     background: linear-gradient(#600355 20%, #670785 190%);
     z-index: 1000;
-    /* make sure it stays above other content */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    /* optional shadow for depth */
 }
 
 
@@ -41,9 +35,6 @@ body {
     font-weight: bold;
     color: #dcddea;
     font-size: clamp(2rem, 3vw, 2.5rem);
-    /* 32px → 40px */
-    /* 40px */
-    /* logo color */
 }
 
 .header .nav-links a {
@@ -53,8 +44,6 @@ body {
     color: #0886d4;
     font-weight: 780;
     font-size: clamp(1.1rem, 1.8vw, 1.5625rem);
-    /* ~18px → 25px */
-    /* 25px */
     transition: all 0.3s ease;
 }
 
@@ -98,8 +87,6 @@ html {
 
 .hero-text h2 {
     font-size: clamp(1.6rem, 3.5vw, 2.1875rem);
-    /* 26px → 35px */
-    /* 35px */
     color: #0c28b2e0;
     margin: 0;
 }
@@ -109,8 +96,6 @@ html {
     font-size: clamp(0.95rem, 3vw, 1.2rem);
     font-weight: 550;
     color: #0b0b32e0;
-    /* 15px → 18px */
-    /* 18px */
     margin: 0 0 16px;
 }
 
@@ -155,7 +140,6 @@ html {
     position: absolute;
     top: 55%;
     left: 20%;
-    /* moved from 80% → 20% */
     width: min(80vw, 550px);
     height: min(80vw, 550px);
     border-radius: 50%;
@@ -224,7 +208,6 @@ html {
 .aboutme2 h2 {
     text-align: left;
     text-align-last: left;
-    /* last line left-aligned */
     color: rgb(3, 18, 92);
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
@@ -273,25 +256,20 @@ html {
 .heroe-text h1,
 .heroe-text h2 {
     font-size: clamp(2.2rem, 7vw, 3.4375rem);
-    /* 35px → 55px */
 }
 
 .heroe-text h1 {
-    /* 55px */
     color: #bbd1ede0;
     margin: 0;
 }
 
 .heroe-text h2 {
-    /* 55px */
     color: #d4deece0;
     margin: 0;
 }
 
 .heroe-text p {
     font-size: clamp(0.95rem, 4vw, 1.0625rem);
-    /* 15px → 17px */
-    /* 17px */
     margin: 0 0 16px;
 }
 
@@ -312,7 +290,6 @@ html {
 .skill {
     padding: 8px 15px;
     font-size: clamp(0.85rem, 4vw, 1rem);
-    /* 16px */
     border-radius: 30px;
     background: #884fa9;
     color: #ffffff;
@@ -327,7 +304,6 @@ html {
     white-space: nowrap;
     overflow: hidden;
     font-size: clamp(0.9rem, 4vw, 1.0625rem);
-    /* 17px */
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: inline-block;
     font-weight: bold;
@@ -398,7 +374,7 @@ html {
     display: flex;
     align-items: flex-start;
     max-width: 100%;
-    height: 94vh;
+    height: 150vh;
     overflow: hidden;
     clip-path: polygon(0 0,
             100% 0,
@@ -409,9 +385,10 @@ html {
 .hobbies {
     position: relative;
     align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     font-size: clamp(1.6rem, 7vw, 2.5rem);
-    /* 26px → 40px */
-    /* 40px */
     width: 100%;
     top: 3.5vh;
     line-height: 1.9;

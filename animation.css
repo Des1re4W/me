@@ -162,3 +162,18 @@ body.page-loaded .aboutme1 h2 {
 
     filter: saturate(1.4) brightness(1.15);
 }
+
+
+.hobbies.animate .box,
+.hobbies.animate .box1,
+.hobbies.animate .box2 {
+    opacity: 1;
+    transform: translateY(-50px);
+}
+.hobbies.animate .box1 {
+    transition-delay: 0.2s;
+}
+
+.hobbies.animate .box2 {
+    transition-delay: 0.5s;
+}

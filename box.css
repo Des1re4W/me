@@ -1,0 +1,73 @@
+.layout {
+    display: flex;
+    height: 115vh;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Divider */
+.divider {
+    height: 100%;
+    width: 17px;
+    border-radius: 50px;
+    background: #800419;
+}
+
+/* Columns */
+.left,
+.right {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.right {
+    flex-direction: column;
+    gap: 50px;
+}
+
+/* Boxes initial state */
+.left .box {
+    width: 300px;
+    height: 300px;
+    margin-top: 360px;
+    opacity: 0;
+    transform: translateX(-120px);
+    transition: opacity 0.8s ease, transform 1.2s ease;
+}
+
+.right .box1 {
+    margin-top: 35px;
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+    transform: translateX(120px);
+    transition: opacity 0.8s ease, transform 1.2s ease;
+}
+
+.right .box2 {
+
+    margin-top: 285px;
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+    transform: translateX(120px);
+    transition: opacity 0.8s ease, transform 1.6s ease;
+}
+
+/* Animate state */
+.box.animate,
+.box1.animate,
+.box2.animate {
+    opacity: 1;
+    transform: translate(0);
+}
+
+/* Hover */
+.box:hover,
+.box1:hover,
+.box2:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}

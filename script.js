@@ -1,13 +1,13 @@
 window.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         document.body.classList.add('page-loaded');
-    }, 100); // slight delay for smoother rendering
+    }, 100);
 });
 
 const phrases = ["Machine Learning", "Blender 3D Models"];
 const typewriter = document.getElementById("typewriter");
-const typingSpeed = 70; // 0.5s per letter
-const pauseTime = 1000;  // pause between phrases
+const typingSpeed = 70;
+const pauseTime = 1000;
 
 let phraseIndex = 0;
 let letterIndex = 0;
@@ -18,7 +18,6 @@ function type() {
         letterIndex++;
         setTimeout(type, typingSpeed);
     } else {
-        // pause before deleting
         setTimeout(erase, pauseTime);
     }
 }
@@ -29,7 +28,6 @@ function erase() {
         letterIndex--;
         setTimeout(erase, typingSpeed);
     } else {
-        // move to next phrase
         phraseIndex = (phraseIndex + 1) % phrases.length;
         setTimeout(type, typingSpeed);
     }
@@ -43,17 +41,16 @@ const sections = document.querySelectorAll('.sec2, .sec3');
 const observer = new IntersectionObserver(
     (entries) => {
         entries.forEach(entry => {
-            // If sec3, skip adding 'swap' to body
             const isSec3 = entry.target.classList.contains('sec3');
 
             if (entry.isIntersecting) {
-                if (!isSec3) document.body.classList.add('swap'); // swap only if not sec3
-                entry.target.classList.add('animate');// animate the section
+                if (!isSec3) document.body.classList.add('swap');
+                entry.target.classList.add('animate');
             } else {
-                if (!isSec3) document.body.classList.remove('swap'); // remove swap only if not sec3
-                entry.target.classList.remove('animate'); // remove animate
+                if (!isSec3) document.body.classList.remove('swap');
+                entry.target.classList.remove('animate'); 
                 entry.target.classList.remove('animate');
-                
+
             }
         });
     },
@@ -67,7 +64,7 @@ const navLinks = document.querySelectorAll('.header .nav-links a[href^="#"]');
 
 navLinks.forEach(link => {
     link.addEventListener('click', function (e) {
-        e.preventDefault(); // prevent default jump
+        e.preventDefault();
 
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
@@ -83,7 +80,7 @@ navLinks.forEach(link => {
 const h1 = document.getElementById("hobbies-text");
 const sec3 = document.querySelector(".sec3");
 const text = h1.textContent;
-h1.textContent = ""; // clear original text
+h1.textContent = ""; 
 
 // Wrap each letter in a span
 text.split("").forEach((letter, index) => {
@@ -95,6 +92,29 @@ text.split("").forEach((letter, index) => {
     span.style.transition = `transform 0.5s ease ${index * 0.1}s, opacity 0.5s ease ${index * 0.1}s`;
     h1.appendChild(span);
 });
+
+// hobbies
+document.addEventListener("DOMContentLoaded", () => {
+    const boxes = document.querySelectorAll(".box, .box1, .box2");
+
+    const observer = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("animate");
+                }
+                else {
+                    entry.target.classList.remove("animate");
+                }
+            });
+        },
+        { threshold: 0.3 }
+    );
+
+    boxes.forEach(box => observer.observe(box));
+});
+
+
 
 // Intersection Observer
 const observer1 = new IntersectionObserver(
@@ -115,10 +135,13 @@ const observer1 = new IntersectionObserver(
             }
         });
     },
-    { threshold: 0.4 } // trigger when 30% of sec3 is visible
+    { threshold: 0.4 } 
 );
 
 observer1.observe(sec3);
+
+
+
 const sections1 = document.querySelectorAll('.sec1, .sec2, .sec3');
 const navLinks1 = document.querySelectorAll('.header .nav-links a[href^="#"]');
 
@@ -137,10 +160,9 @@ const sectionObserver = new IntersectionObserver(
             }
         });
     },
-    { threshold: 0.4 } // trigger when 30% of section is visible
+    { threshold: 0.4 }
 );
 
-// Observe all sections
 sections1.forEach(section => sectionObserver.observe(section));
 
 document.querySelectorAll('.holo-btn').forEach(btn => {
@@ -151,11 +173,9 @@ document.querySelectorAll('.holo-btn').forEach(btn => {
         const x = (e.clientX - r.left) / r.width;
         const y = (e.clientY - r.top) / r.height;
 
-        // light position
         img.style.setProperty('--x', `${x * 100}%`);
         img.style.setProperty('--y', `${y * 100}%`);
 
-        // 3D tilt
         img.style.setProperty('--rx', `${(0.5 - y) * 14}deg`);
         img.style.setProperty('--ry', `${(x - 0.5) * 14}deg`);
     });
