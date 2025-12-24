@@ -155,6 +155,7 @@
 
     .hobbies {
         position: relative;
+        height: auto;
         top: auto;
         width: 90%;
         margin: 0 auto;
@@ -196,7 +197,7 @@
     /* Right boxes */
     .right .box1,
     .right .box2 {
-        margin-top: 20px !important;
+        margin-top: 0px !important;
 
     }
 
