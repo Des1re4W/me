@@ -162,7 +162,7 @@
   .layout {
     flex-direction: column;
     height: auto; /* let height adapt */
-    gap: 50px;    /* reduce gap between left and right columns */
+    gap: 20px;    /* reduce gap between left and right columns */
     align-items: center;
   }
 
@@ -172,6 +172,7 @@
   }
 
   /* Remove large top margins on the boxes */
+  .left .box,
   .right .box1,
   .right .box2 {
     margin-top: 20px !important; /* small margin for spacing */
