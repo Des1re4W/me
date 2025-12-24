@@ -36,7 +36,7 @@ function erase() {
 type();
 
 // Sections animation
-const animatedSections = document.querySelectorAll('.sec1, .sec2, .sec3');
+const animatedSections = document.querySelectorAll('section'); 
 const sectionObserver = new IntersectionObserver(
     (entries) => {
         entries.forEach(entry => {
