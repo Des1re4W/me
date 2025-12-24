@@ -162,7 +162,7 @@
   .layout {
     flex-direction: column;
     height: auto; /* let height adapt */
-    gap: 20px;    /* reduce gap between left and right columns */
+    gap: 50px;    /* reduce gap between left and right columns */
     align-items: center;
   }
 

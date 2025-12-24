@@ -78,7 +78,6 @@ navLinks.forEach(link => {
 
 // hobbies
 const h1 = document.getElementById("hobbies-text");
-const sec3 = document.querySelector(".sec3");
 const text = h1.textContent;
 h1.textContent = ""; 
 
@@ -93,26 +92,47 @@ text.split("").forEach((letter, index) => {
     h1.appendChild(span);
 });
 
-// hobbies
 document.addEventListener("DOMContentLoaded", () => {
+    // Boxes observer with threshold 0.45
     const boxes = document.querySelectorAll(".box, .box1, .box2");
-
-    const observer = new IntersectionObserver(
+    const boxesObserver = new IntersectionObserver(
         entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add("animate");
-                }
-                else {
+                } else {
                     entry.target.classList.remove("animate");
                 }
             });
         },
-        { threshold: 0.3 }
+        { threshold: 0.45 }
     );
+    boxes.forEach(box => boxesObserver.observe(box));
 
-    boxes.forEach(box => observer.observe(box));
+    // Text observer with threshold 0.6 (example: higher threshold)
+    const textObserver = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    h1.classList.add("animate");
+                    h1.querySelectorAll("span").forEach(span => {
+                        span.style.opacity = 1;
+                        span.style.transform = "translateX(0)";
+                    });
+                } else {
+                    h1.classList.remove("animate");
+                    h1.querySelectorAll("span").forEach((span, index) => {
+                        span.style.opacity = 0;
+                        span.style.transform = index % 2 === 0 ? "translateX(-50px)" : "translateX(50px)";
+                    });
+                }
+            });
+        },
+        { threshold: 0.6 }  // different threshold for text animation
+    );
+    textObserver.observe(h1);
 });
+
 
 
 
