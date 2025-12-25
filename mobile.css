@@ -84,9 +84,9 @@
     .aboutme2 {
         position: relative;
         width: 90%;
-        height: 50vh;
+        height: 55vh;
         left: 0;
-        top: 10vh;
+        top: 9.5vh;
         margin: 0 auto;
     }
 
@@ -210,6 +210,7 @@
     }
 
     .educ-high {
+        width: 100%;
         font-size: 7px !important;
         text-align: left;
     }
