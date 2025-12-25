@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +9,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="animation.css">
     <link rel="stylesheet" href="mobile.css" media="screen and (max-width: 768px)">
     <link rel="stylesheet" href="box.css">
     <link rel="stylesheet" href="cert.css">
+    <link rel="stylesheet" href="contact.css">
     <script src="script.js" defer></script>
 </head>
 <header class="header">
@@ -27,6 +29,7 @@ href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Op
         </div>
     </div>
 </header>
+
 <body>
     <div class="rect1"></div>
     <section class="sec1" id="home">
@@ -159,6 +162,21 @@ href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Op
                 </div>
             </div>
         </div>
+    </section>
+    <section class="contact" id="contacts">
+        <h1>Contact Me</h1>
+        <form class="contact-form" action="shanbenzerfajagutana002@gmail.com" method="POST" enctype="text/plain">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="Name" placeholder="Your Name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="Email" placeholder="Your Email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="Message" rows="6" placeholder="Your Message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
     </section>
 </body>
 

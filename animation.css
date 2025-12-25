@@ -235,3 +235,25 @@ body.page-loaded .aboutme1 h2 {
     opacity: 1;
     transform: translateX(0);
 }
+
+.contact-form button {
+    background: linear-gradient(90deg, #00bcd4, #4dd0e1);
+    --x: 50%;
+    --y: 50%;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.contact-form button::before {
+    content: '';
+    position: absolute;
+    top: var(--y);
+    left: var(--x);
+    width: 300%;
+    height: 300%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}

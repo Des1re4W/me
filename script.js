@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         document.body.classList.add('page-loaded');
-    }, 100); // slight delay for smoother rendering
+    }, 100);
 });
 
 // Typewriter effect
@@ -145,7 +145,6 @@ const certObserver3 = new IntersectionObserver(entries => {
                 span.style.transform = "translateX(0)";
             });
         } else {
-            // Reset when scrolling out
             spans.forEach((span, index) => {
                 span.style.opacity = 0;
                 span.style.transform = index % 2 === 0 ? "translateX(-50px)" : "translateX(50px)";
@@ -199,7 +198,7 @@ const hobbiesObserver = new IntersectionObserver(
 );
 hobbiesObserver.observe(hobbiesElement);
 
-// Holo button hover effect
+// Holo button hover 
 document.querySelectorAll('.holo-btn').forEach(btn => {
     const img = btn.querySelector('img');
     btn.addEventListener('mousemove', e => {
@@ -233,11 +232,11 @@ const certObserver = new IntersectionObserver(
     { threshold: 0.2 }
 );
 
-// Observe certificate (left)
+// certificate 
 const certificate = document.querySelector(".certificate-cont");
 if (certificate) certObserver.observe(certificate);
 
-// Observe education boxes (right)
+// education boxes 
 document.querySelectorAll(".education-cont").forEach(el => {
     certObserver.observe(el);
 });
@@ -279,3 +278,30 @@ cert.addEventListener('click', () => {
 });
 
 
+// contact 
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+    const contactElements = contactForm.querySelectorAll('input, textarea, button');
+    const contactObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                contactElements.forEach((el, index) => {
+                    el.style.opacity = 0;
+                    el.style.transform = "translateY(30px)";
+                    setTimeout(() => {
+                        el.style.transition = "transform 0.5s ease, opacity 0.5s ease";
+                        el.style.opacity = 1;
+                        el.style.transform = "translateY(0)";
+                    }, index * 100); 
+                });
+            } else {
+                contactElements.forEach(el => {
+                    el.style.opacity = 0;
+                    el.style.transform = "translateY(30px)";
+                });
+            }
+        });
+    }, { threshold: 0.2 });
+
+    contactObserver.observe(contactForm);
+}
