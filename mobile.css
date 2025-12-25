@@ -88,11 +88,11 @@
         left: 0;
         top: 10vh;
         margin: 0 auto;
-        font-size: 30px;
     }
 
     .aboutme2 h2 {
-        font-size: clamp(.9rem, 4vw, 1rem);
+        font-size: clamp(.9rem, 1.3vw, 1.6rem);
+        font-weight: bold;
         text-align: center;
         text-align-last: center;
     }
