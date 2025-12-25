@@ -215,3 +215,23 @@ body.page-loaded .aboutme1 h2 {
     opacity: 1;
     transform: translateY(0);
 }
+
+.certificate-cont,
+.education-cont {
+    opacity: 0;
+    transition: all 0.8s ease;
+}
+
+.certificate-cont {
+    transform: translateX(-80px);
+}
+
+.education-cont {
+    transform: translateX(80px);
+}
+
+.certificate-cont.animate,
+.education-cont.animate {
+    opacity: 1;
+    transform: translateX(0);
+}

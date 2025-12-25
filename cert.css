@@ -1,0 +1,120 @@
+.certificate {
+    color: bisque;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+}
+
+.cert-text {
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+
+/* Base certificate */
+.certificate-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 45%;
+    height: auto;
+    border: 3.5px solid rgba(127, 255, 212, 0.6);
+    padding: 20px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(6px);
+    cursor: pointer;
+
+    /* transition for smooth zoom on image */
+    transition: none;
+    /* container itself doesn't scale */
+}
+
+.cert-educ-row {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    gap: 50px;
+}
+
+/* CERTIFICATE (LEFT) */
+.certificate-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 45%;
+    height: auto;
+    border: 3.5px solid rgba(127, 255, 212, 0.6);
+    padding: 20px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    transform: translateX(-80px);
+    transition: transform 0.4s ease, width 0.4s ease, height 0.4s ease;
+}
+
+/* IMAGE */
+.certificate-cont img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.4s ease;
+    /* smooth zoom */
+}
+
+.certificate-cont.zoomed img {
+    /* zoom factor */
+    max-width: 30%;
+    /* optional: limit size */
+    max-height: 30%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(2);
+    /* scale controls zoom */
+    z-index: 1000;
+
+    width: auto;
+    /* adjust width on zoom */
+    max-width: 90%;
+    height: auto;
+    /* adjust height on zoom */
+    max-height: 90%;
+
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* TEXT */
+.cert-mean {
+    font-size: 20px;
+    font-weight: bold;
+    color: aquamarine;
+    margin-top: 10px;
+}
+
+/* EDUCATION (RIGHT) */
+.education-wrapper {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.education-cont {
+    border: 3.5px solid rgba(255, 228, 196, 0.5);
+    padding: 20px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.03);
+
+    /* animation start */
+    opacity: 0;
+    transform: translateX(80px);
+}
+
+.educ-high {
+    font-size: 18px;
+    color: bisque;
+}

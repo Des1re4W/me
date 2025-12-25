@@ -36,7 +36,7 @@ function erase() {
 type();
 
 // Sections animation
-const animatedSections = document.querySelectorAll('section'); 
+const animatedSections = document.querySelectorAll('section');
 const sectionObserver = new IntersectionObserver(
     (entries) => {
         entries.forEach(entry => {
@@ -119,6 +119,45 @@ hobbiesText.split("").forEach((letter, index) => {
     hobbiesElement.appendChild(span);
 });
 
+// hobbies --
+const certTextElement = document.getElementById("cert-text");
+const certText = certTextElement.textContent;
+certTextElement.textContent = "";
+
+// Wrap letters in spans
+const spans = certText.split("").map((letter, index) => {
+    const span = document.createElement("span");
+    span.textContent = letter;
+    span.style.display = "inline-block";
+    span.style.opacity = 0;
+    span.style.transform = index % 2 === 0 ? "translateX(-50px)" : "translateX(50px)";
+    span.style.transition = `transform 0.5s ease ${index * 0.05}s, opacity 0.5s ease ${index * 0.05}s`;
+    certTextElement.appendChild(span);
+    return span;
+});
+
+// Animate with IntersectionObserver
+const certObserver3 = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            spans.forEach(span => {
+                span.style.opacity = 1;
+                span.style.transform = "translateX(0)";
+            });
+        } else {
+            // Reset when scrolling out
+            spans.forEach((span, index) => {
+                span.style.opacity = 0;
+                span.style.transform = index % 2 === 0 ? "translateX(-50px)" : "translateX(50px)";
+            });
+        }
+    });
+}, { threshold: 0.2 });
+
+certObserver3.observe(certTextElement);
+
+
+
 // Boxes animation (animate individually based on visibility)
 const elements = document.querySelectorAll(".box, .box1, .box2, .games, .explore, .cards, .imagine");
 
@@ -179,3 +218,64 @@ document.querySelectorAll('.holo-btn').forEach(btn => {
         img.style.setProperty('--ry', `0deg`);
     });
 });
+
+
+const certObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+            } else {
+                entry.target.classList.remove('animate');
+            }
+        });
+    },
+    { threshold: 0.2 }
+);
+
+// Observe certificate (left)
+const certificate = document.querySelector(".certificate-cont");
+if (certificate) certObserver.observe(certificate);
+
+// Observe education boxes (right)
+document.querySelectorAll(".education-cont").forEach(el => {
+    certObserver.observe(el);
+});
+
+const cert = document.querySelector('.certificate-cont img'); // select only the image
+
+cert.addEventListener('click', () => {
+    const overlay = document.createElement('div');
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100vw';
+    overlay.style.height = '100vh';
+    overlay.style.background = 'rgba(0,0,0,0.7)';
+    overlay.style.display = 'flex';
+    overlay.style.alignItems = 'center';
+    overlay.style.justifyContent = 'center';
+    overlay.style.zIndex = '1000';
+    overlay.style.cursor = 'zoom-out';
+
+    const imgClone = cert.cloneNode(true);
+    imgClone.style.transform = 'scale(0.5)';
+    imgClone.style.transition = 'transform 0.4s ease';
+    imgClone.style.maxWidth = '90%';
+    imgClone.style.maxHeight = '90%';
+    overlay.appendChild(imgClone);
+    document.body.appendChild(overlay);
+
+    setTimeout(() => {
+        imgClone.style.transform = 'scale(1)';
+    }, 10);
+
+    overlay.addEventListener('click', () => {
+        imgClone.style.transform = 'scale(0.5)';
+        setTimeout(() => {
+            document.body.removeChild(overlay);
+        }, 400);
+    });
+});
+
+
