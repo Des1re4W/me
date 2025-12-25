@@ -197,8 +197,10 @@
     }
 
     .cert-text {
+        margin-top: 7vh;
         font-size: 20px !important;
         text-align: center;
+        font-weight: bold;
     }
 
     .cert-mean {
