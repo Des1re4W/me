@@ -67,3 +67,136 @@
     box-shadow: 0px 4px 15px rgba(0, 188, 212, 0.4);
 }
 
+.form-message {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: rgba(0, 188, 212, 0.95);
+    /* default blue */
+    color: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10000;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form button {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.contact-form.animate input,
+.contact-form.animate textarea,
+.contact-form.animate button {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.form-message {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: rgba(0, 188, 212, 0.95);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10000;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
+}
+
+.form-message.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+/* input label */
+
+.input-wrapper {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-wrapper input,
+.input-wrapper textarea {
+    width: 100%;
+    padding: 15px 12px;
+    font-size: 1rem;
+    
+    color: aliceblue;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    background: transparent;
+    font-family: 'Open Sans', sans-serif;
+    transition: border 0.3s ease;
+}
+
+.input-wrapper input:focus,
+.input-wrapper textarea:focus {
+    border-color: #00bcd4;
+}
+
+.input-wrapper label {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    padding: 0 4px;
+}
+
+/* Move label up when input is focused or has value */
+.input-wrapper input:focus+label,
+.input-wrapper input:not(:placeholder-shown)+label,
+.input-wrapper textarea:focus+label,
+.input-wrapper textarea:not(:placeholder-shown)+label {
+    top: -10px;
+    font-size: 0.85rem;
+    color: #00bcd4;
+}
+
+
+.input-tooltip {
+    position: absolute;
+    left: 0;
+    bottom: -28px;
+    background: rgba(255, 50, 50, 0.95);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+.input-tooltip.show {
+    opacity: 1;
+    transform: translateY(0);
+}

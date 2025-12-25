@@ -278,7 +278,7 @@ cert.addEventListener('click', () => {
 });
 
 
-// contact 
+// contact animation
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
     const contactElements = contactForm.querySelectorAll('input, textarea, button');
@@ -292,7 +292,7 @@ if (contactForm) {
                         el.style.transition = "transform 0.5s ease, opacity 0.5s ease";
                         el.style.opacity = 1;
                         el.style.transform = "translateY(0)";
-                    }, index * 100); 
+                    }, index * 100);
                 });
             } else {
                 contactElements.forEach(el => {
@@ -305,3 +305,92 @@ if (contactForm) {
 
     contactObserver.observe(contactForm);
 }
+
+// contact
+
+const contactMessage = document.querySelector('.contact-form');
+const formMessage = document.querySelector('.form-message');
+const inputWrapper = document.querySelectorAll('.input-wrapper');
+
+contactMessage.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    let valid = true;
+
+    // Validate inputs
+    inputWrapper.forEach(wrapper => {
+        const input = wrapper.querySelector('input, textarea');
+        const tooltip = wrapper.querySelector('.input-tooltip');
+        if (!input.value.trim()) {
+            tooltip.classList.add('show');
+            valid = false;
+            setTimeout(() => tooltip.classList.remove('show'), 3000);
+        }
+    });
+
+    if (!valid) return; // Stop submission if any field is empty
+
+    // Send form data to Formspree
+    const formData = new FormData(contactMessage);
+    try {
+        const response = await fetch(contactMessage.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+            contactMessage.reset(); // Clear the form
+            showToast("✅ Thank you! Your message has been sent.", "rgba(66, 44, 192, 0.95)");
+        } else {
+            showToast("⚠️ Oops! Something went wrong.", "rgba(201, 30, 184, 0.95)");
+        }
+    } catch {
+        showToast("⚠️ Oops! Something went wrong.", "rgba(201, 30, 184, 0.95)");
+    }
+});
+
+function showToast(message, bgColor) {
+    formMessage.textContent = message;
+    formMessage.style.background = bgColor;
+    formMessage.classList.add('show');
+    setTimeout(() => formMessage.classList.remove('show'), 4000); // Hide after 4s
+}
+
+
+// Animate form fields with bounce effect
+function animateInputs() {
+    inputs.forEach((el, index) => {
+        el.style.opacity = 0;
+        el.style.transform = "translateY(30px)";
+        setTimeout(() => {
+            el.style.transition = "transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease";
+            el.style.opacity = 1;
+            el.style.transform = "translateY(0)";
+        }, index * 100);
+    });
+}
+
+
+//
+const inputWrappers = document.querySelectorAll('.input-wrapper');
+
+contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let valid = true;
+
+    inputWrappers.forEach(wrapper => {
+        const input = wrapper.querySelector('input, textarea');
+        const tooltip = wrapper.querySelector('.input-tooltip');
+        if (!input.value.trim()) {
+            tooltip.classList.add('show');
+            valid = false;
+
+            setTimeout(() => {
+                tooltip.classList.remove('show');
+            }, 3000);
+        }
+    });
+
+    if (!valid) return;
+
+});

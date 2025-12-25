@@ -165,19 +165,32 @@
     </section>
     <section class="contact" id="contacts">
         <h1>Contact Me</h1>
-        <form class="contact-form" action="shanbenzerfajagutana002@gmail.com" method="POST" enctype="text/plain">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="Name" placeholder="Your Name" required>
+        <form class="contact-form" action="https://formspree.io/f/xojagkeg" method="POST" novalidate>
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="Email" placeholder="Your Email" required>
+            <div class="input-wrapper">
+                <input type="text" id="name" name="name" placeholder=" " required>
+                <label for="name">Name</label>
+                <span class="input-tooltip">Please fill out this field</span>
+            </div>
 
-            <label for="message">Message</label>
-            <textarea id="message" name="Message" rows="6" placeholder="Your Message" required></textarea>
+            <div class="input-wrapper">
+                <input type="email" id="email" name="email" placeholder=" " required>
+                <label for="email">Email</label>
+                <span class="input-tooltip">Please fill out this field</span>
+            </div>
+
+            <div class="input-wrapper">
+                <textarea id="message" name="message" placeholder=" " rows="6" required></textarea>
+                <label for="message">Your Message</label>
+                <span class="input-tooltip">Please fill out this field</span>
+            </div>
 
             <button type="submit">Send Message</button>
+                <div class="form-message"></div>
         </form>
     </section>
+
+
 </body>
 
 </html>
