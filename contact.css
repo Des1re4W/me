@@ -12,12 +12,6 @@
     color: #b8b4b4;
 }
 
-.contact p {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1rem;
-    margin-bottom: 40px;
-    color: #b8b4b4;
-}
 
 .contact-form {
     max-width: 600px;
@@ -27,11 +21,7 @@
     gap: 20px;
 }
 
-.contact-form label {
-    font-weight: 600;
-    color: #b8b4b4;
-    text-align: left;
-}
+
 
 .contact-form input,
 .contact-form textarea {
@@ -44,11 +34,6 @@
     transition: border-color 0.3s ease;
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
-    border-color: #00bcd4;
-    outline: none;
-}
 
 .contact-form button {
     padding: 15px;
@@ -64,28 +49,10 @@
 
 .contact-form button:hover {
     transform: translateY(-3px);
-    box-shadow: 0px 4px 15px rgba(0, 188, 212, 0.4);
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.4);
 }
 
-.form-message {
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%) translateY(100px);
-    background: rgba(0, 188, 212, 0.95);
-    /* default blue */
-    color: white;
-    padding: 15px 25px;
-    border-radius: 12px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    pointer-events: none;
-    z-index: 10000;
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
-}
+
 
 .contact-form input,
 .contact-form textarea,
@@ -102,24 +69,6 @@
     transform: translateY(0);
 }
 
-.form-message {
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%) translateY(100px);
-    background: rgba(0, 188, 212, 0.95);
-    color: white;
-    padding: 15px 25px;
-    border-radius: 12px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    pointer-events: none;
-    z-index: 10000;
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
-}
 
 .form-message.show {
     transform: translateX(-50%) translateY(0);
@@ -140,7 +89,6 @@
     width: 100%;
     padding: 15px 12px;
     font-size: 1rem;
-    
     color: aliceblue;
     border: 2px solid #ccc;
     border-radius: 8px;
@@ -150,24 +98,18 @@
     transition: border 0.3s ease;
 }
 
-.input-wrapper input:focus,
-.input-wrapper textarea:focus {
-    border-color: #00bcd4;
-}
-
 .input-wrapper label {
     position: absolute;
     left: 12px;
     top: 50%;
     transform: translateY(-50%);
-    color: #aaa;
+    color: #09e9b9;
     font-size: 1rem;
     pointer-events: none;
     transition: all 0.3s ease;
     padding: 0 4px;
 }
 
-/* Move label up when input is focused or has value */
 .input-wrapper input:focus+label,
 .input-wrapper input:not(:placeholder-shown)+label,
 .input-wrapper textarea:focus+label,
@@ -199,4 +141,112 @@
 .input-tooltip.show {
     opacity: 1;
     transform: translateY(0);
+}
+
+.contact-socials {
+    margin-top: 6.9vh;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Base */
+.contact-socials .holo-btn {
+    opacity: 0;
+    transition:
+        transform 0.8s cubic-bezier(0.22, 1.2, 0.36, 1),
+        opacity 0.6s ease;
+}
+
+/* Initial positions */
+.contact-socials .holo-btn.facebook {
+    transform: translateX(-80px) scale(0.9);
+}
+
+.contact-socials .holo-btn.instagram {
+    transform: translateY(-80px) scale(0.9);
+}
+
+.contact-socials .holo-btn.linkedin {
+    transform: translateX(80px) scale(0.9);
+}
+
+/* Active state */
+.contact-socials.show .holo-btn {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+}
+
+/* Stagger timing */
+.contact-socials.show .facebook {
+    transition-delay: 0s;
+}
+
+.contact-socials.show .instagram {
+    transition-delay: 0.2s;
+}
+
+.contact-socials.show .linkedin {
+    transition-delay: 0.4s;
+}
+
+
+
+.contact-socials.show .holo-btn {
+    animation: settle 0.4s ease 0.9s forwards;
+}
+
+
+.contact-socials .holo-btn img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    transition:
+        transform 0.25s ease-out,
+        filter 0.3s ease,
+        box-shadow 0.3s ease;
+    will-change: transform;
+    transform-style: preserve-3d;
+    border-radius: 8px;
+}
+
+.contact-socials .holo-btn:hover img {
+    box-shadow: 0 0 15px rgba(0, 245, 255, 0.6);
+    filter: brightness(1.2);
+}
+
+
+.contact-socials .holo-btn img {
+    background:
+        linear-gradient(120deg,
+            #00f5ff,
+            #ff00f7,
+            #00ff9d,
+            #00f5ff);
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+    border-radius: 8px;
+}
+
+
+.contact-socials .holo-btn:nth-child(1) img {
+    /* Facebook */
+    width: 45px;
+    height: 45px;
+}
+
+.contact-socials .holo-btn:nth-child(2) img {
+    /* Instagram */
+    width: 45px;
+    height: 45px;
+}
+
+.contact-socials .holo-btn:nth-child(3) img {
+    /* LinkedIn */
+    width: 45px;
+    height: 45px;
 }

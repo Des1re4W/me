@@ -249,11 +249,18 @@ body.page-loaded .aboutme1 h2 {
     position: absolute;
     top: var(--y);
     left: var(--x);
-    width: 300%;
-    height: 300%;
+    width: 150%;
+    height: 250%;
     transform: translate(-50%, -50%);
     background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     pointer-events: none;
     transition: all 0.3s ease;
 }
+
+.contact-socials .holo-btn:hover img {
+    transform: rotateX(10deg) rotateY(10deg) scale(1.2);
+    filter: brightness(1.2);
+}
+
+

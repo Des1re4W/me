@@ -394,3 +394,55 @@ contactForm.addEventListener('submit', (e) => {
     if (!valid) return;
 
 });
+
+document.querySelectorAll('.contact-socials .holo-btn').forEach(btn => {
+    const img = btn.querySelector('img');
+    btn.addEventListener('mousemove', e => {
+        const rect = btn.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width;
+        const y = (e.clientY - rect.top) / rect.height;
+        img.style.setProperty('--x', `${x * 100}%`);
+        img.style.setProperty('--y', `${y * 100}%`);
+        img.style.setProperty('--rx', `${(0.5 - y) * 14}deg`);
+        img.style.setProperty('--ry', `${(x - 0.5) * 14}deg`);
+    });
+    btn.addEventListener('mouseleave', () => {
+        img.style.setProperty('--x', `50%`);
+        img.style.setProperty('--y', `50%`);
+        img.style.setProperty('--rx', `0deg`);
+        img.style.setProperty('--ry', `0deg`);
+    });
+});
+
+// Animate social icons
+const socialSection = document.querySelector('.contact-socials');
+
+if (socialSection) {
+    const socialObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                socialSection.classList.add('show');
+                socialObserver.unobserve(socialSection); // animate once
+            }
+        });
+    }, { threshold: 0.2 });
+
+    socialObserver.observe(socialSection);
+}
+
+// Disable on touch devices
+if (!('ontouchstart' in window)) {
+    document.querySelectorAll('.contact-socials .holo-btn').forEach(btn => {
+        btn.addEventListener('mousemove', e => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+        });
+
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'translate(0, 0)';
+        });
+    });
+}

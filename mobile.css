@@ -1,5 +1,10 @@
 @media (max-width: 800px) {
 
+    body,
+    html {
+        overflow-x: hidden;
+    }
+
     .header .head {
         position: fixed;
         padding: clamp(0.8rem, 3vw, 1.5rem);
@@ -78,26 +83,18 @@
     /* Styles for aboutme2 */
     .aboutme2 {
         position: relative;
-        /* remove absolute */
         width: 90%;
         height: 50vh;
-        /* adjust width for mobile */
         left: 0;
-        /* reset left offset */
         top: 10vh;
-        /* remove top offset */
         margin: 0 auto;
-        /* center with some spacing */
         font-size: 30px;
     }
 
     .aboutme2 h2 {
         font-size: clamp(.9rem, 4vw, 1rem);
-        /* adjust max size */
         text-align: center;
         text-align-last: center;
-        white-space: normal;
-        /* ignore <br> on mobile */
     }
 
 
@@ -127,7 +124,6 @@
         position: relative;
         inset: auto;
         transform: scaleX(-1);
-        /* top margin pushes it down slightly, remove for top */
         width: min(70vw, 250px);
         height: min(70vw, 250px);
     }
@@ -237,11 +233,68 @@
         transform: translate(-50%, -50%) scale(2);
         z-index: 1000;
     }
-}
+
+    .contact {
+        padding: 20px 15px;
+        text-align: center;
+    }
 
     .contact h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        margin-bottom: 15px;
     }
-    .contact p {
+
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .input-wrapper {
+        width: 100%;
+    }
+
+    .input-wrapper input,
+    .input-wrapper textarea {
+        width: 100%;
+        font-size: 1rem;
+        padding: 10px 12px;
+    }
+
+    .input-wrapper label {
         font-size: 0.9rem;
     }
+
+    .input-tooltip {
+        font-size: 0.8rem;
+    }
+
+    .contact-form button {
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    .form-message {
+        margin-top: 10px;
+        padding: 10px 12px;
+        font-size: 0.95rem;
+        border-radius: 5px;
+        color: white;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        text-align: center;
+    }
+
+    .form-message.show {
+        opacity: 1;
+    }
+        .contact-socials {
+        gap: 15px;
+    }
+    .contact-socials .holo-btn img {
+        width: 35px;
+        height: 35px;
+    }
+}
