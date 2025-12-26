@@ -317,17 +317,14 @@ contactMessage.addEventListener('submit', async (e) => {
     e.preventDefault();
     let valid = true;
 
-    // Reset tooltips
     inputWrappers.forEach(w => {
         w.querySelector('.input-tooltip').classList.remove('show');
     });
 
-    // Validate inputs
     inputWrappers.forEach(wrapper => {
         const input = wrapper.querySelector('input, textarea');
         const tooltip = wrapper.querySelector('.input-tooltip');
 
-        // Empty check
         if (!input.value.trim()) {
             tooltip.textContent = "Please fill out this field";
             tooltip.classList.add('show');
@@ -348,10 +345,8 @@ contactMessage.addEventListener('submit', async (e) => {
         }
     });
 
-    // 🚫 STOP HERE if invalid
     if (!valid) return;
 
-    // ✅ Send to Formspree
     try {
         const response = await fetch(contactMessage.action, {
             method: 'POST',
@@ -360,10 +355,11 @@ contactMessage.addEventListener('submit', async (e) => {
         });
 
         if (response.ok) {
-            const name = contactMessage.querySelector('#name').value.trim() || "there";
+            const fullName = contactMessage.querySelector('#name').value.trim() || "there";
+            const firstName = fullName.split(" ")[0]; // Take the first word as first name
             contactMessage.reset();
             showFormMessage(
-                `Hi ${name}, thank you for contacting me 💌 I’ll reply ASAP.`,
+                `Hi ${firstName}, thank you for reaching out! I’ve received your message and will respond shortly.`,
                 "success"
             );
         } else {

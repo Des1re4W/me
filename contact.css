@@ -98,9 +98,9 @@
 .form-message.success {
     color: #e6e9ee;
     background: linear-gradient(135deg,
-            rgba(0, 229, 255, 0.9),
-            rgba(77, 208, 225, 0.9));
-    box-shadow: 0 0 25px rgba(0, 229, 255, 0.45);
+            rgba(139, 20, 166, 0.9),
+            rgba(174, 13, 169, 0.9));
+    box-shadow: 0 0 25px rgba(147, 5, 138, 0.45);
 }
 
 .form-message.error {
@@ -159,7 +159,7 @@
     position: absolute;
     left: 0;
     bottom: -28px;
-    background: rgba(255, 50, 50, 0.95);
+    background: rgba(199, 26, 184, 0.698);
     color: white;
     padding: 5px 10px;
     border-radius: 6px;
