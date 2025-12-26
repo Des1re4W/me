@@ -176,7 +176,7 @@ html {
 .aboutme2 {
     position: absolute;
     width: 45%;
-    top: 5vh;
+    top: 10vh;
     left: 45%;
     margin-top: 30vh;
     line-height: 1.9;
@@ -189,7 +189,7 @@ html {
     color: rgb(3, 18, 92);
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
-    font-size: clamp(0.9rem, 4vw, 1.55rem);
+    font-size: clamp(1.4rem, 2vw, 1.35rem);
 }
 
 body {

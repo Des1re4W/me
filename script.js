@@ -307,54 +307,83 @@ if (contactForm) {
 }
 
 // contact
-
 const contactMessage = document.querySelector('.contact-form');
 const formMessage = document.querySelector('.form-message');
-const inputWrapper = document.querySelectorAll('.input-wrapper');
+const inputWrappers = document.querySelectorAll('.input-wrapper');
+
+const allowedDomains = ["gmail.com", "yahoo.com", "outlook.com", "hotmail.com"];
 
 contactMessage.addEventListener('submit', async (e) => {
     e.preventDefault();
     let valid = true;
 
+    // Reset tooltips
+    inputWrappers.forEach(w => {
+        w.querySelector('.input-tooltip').classList.remove('show');
+    });
+
     // Validate inputs
-    inputWrapper.forEach(wrapper => {
+    inputWrappers.forEach(wrapper => {
         const input = wrapper.querySelector('input, textarea');
         const tooltip = wrapper.querySelector('.input-tooltip');
+
+        // Empty check
         if (!input.value.trim()) {
+            tooltip.textContent = "Please fill out this field";
             tooltip.classList.add('show');
             valid = false;
-            setTimeout(() => tooltip.classList.remove('show'), 3000);
+            return;
+        }
+
+        // Email domain validation
+        if (input.type === "email") {
+            const email = input.value.trim().toLowerCase();
+            const domain = email.split("@")[1];
+
+            if (!domain || !allowedDomains.includes(domain)) {
+                tooltip.textContent = "This should be an Email";
+                tooltip.classList.add('show');
+                valid = false;
+            }
         }
     });
 
-    if (!valid) return; // Stop submission if any field is empty
+    // 🚫 STOP HERE if invalid
+    if (!valid) return;
 
-    // Send form data to Formspree
-    const formData = new FormData(contactMessage);
+    // ✅ Send to Formspree
     try {
         const response = await fetch(contactMessage.action, {
             method: 'POST',
-            body: formData,
+            body: new FormData(contactMessage),
             headers: { 'Accept': 'application/json' }
         });
 
         if (response.ok) {
-            contactMessage.reset(); // Clear the form
-            showToast("✅ Thank you! Your message has been sent.", "rgba(66, 44, 192, 0.95)");
+            const name = contactMessage.querySelector('#name').value.trim() || "there";
+            contactMessage.reset();
+            showFormMessage(
+                `Hi ${name}, thank you for contacting me 💌 I’ll reply ASAP.`,
+                "success"
+            );
         } else {
-            showToast("⚠️ Oops! Something went wrong.", "rgba(201, 30, 184, 0.95)");
+            showFormMessage("Server error. Please try again later.", "error");
         }
     } catch {
-        showToast("⚠️ Oops! Something went wrong.", "rgba(201, 30, 184, 0.95)");
+        showFormMessage("Network error. Please try again.", "error");
     }
-});
+})
 
-function showToast(message, bgColor) {
+
+function showFormMessage(message, type = "success") {
     formMessage.textContent = message;
-    formMessage.style.background = bgColor;
-    formMessage.classList.add('show');
-    setTimeout(() => formMessage.classList.remove('show'), 4000); // Hide after 4s
+    formMessage.className = `form-message show ${type}`;
+
+    setTimeout(() => {
+        formMessage.classList.remove("show");
+    }, 3500);
 }
+
 
 
 // Animate form fields with bounce effect
@@ -372,13 +401,14 @@ function animateInputs() {
 
 
 //
-const inputWrappers = document.querySelectorAll('.input-wrapper');
 
-contactForm.addEventListener('submit', (e) => {
+const inputWrappers2 = document.querySelectorAll('.input-wrapper');
+
+contactMessage.addEventListener('submit', (e) => {
     e.preventDefault();
     let valid = true;
 
-    inputWrappers.forEach(wrapper => {
+    inputWrappers2.forEach(wrapper => {
         const input = wrapper.querySelector('input, textarea');
         const tooltip = wrapper.querySelector('.input-tooltip');
         if (!input.value.trim()) {
@@ -446,3 +476,5 @@ if (!('ontouchstart' in window)) {
         });
     });
 }
+
+

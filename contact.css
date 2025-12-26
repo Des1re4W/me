@@ -70,10 +70,45 @@
 }
 
 
+.form-message {
+    margin-top: 18px;
+    padding: 14px 18px;
+    border-radius: 14px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+    pointer-events: none;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
 .form-message.show {
-    transform: translateX(-50%) translateY(0);
     opacity: 1;
+    transform: translateY(0) scale(1);
     pointer-events: auto;
+}
+
+.form-message.success {
+    color: #e6e9ee;
+    background: linear-gradient(135deg,
+            rgba(0, 229, 255, 0.9),
+            rgba(77, 208, 225, 0.9));
+    box-shadow: 0 0 25px rgba(0, 229, 255, 0.45);
+}
+
+.form-message.error {
+    color: #ffffff;
+    background: linear-gradient(135deg,
+            rgba(255, 70, 70, 0.95),
+            rgba(201, 30, 184, 0.95));
+    box-shadow: 0 0 25px rgba(255, 60, 60, 0.45);
 }
 
 
