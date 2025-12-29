@@ -23,7 +23,7 @@ img {
 body {
     margin: 0;
     font-family: 'Courier New', Courier, monospace;
-    background: linear-gradient(#940fd2df 10%, #7e047ce2 50%, #3a11c1e2 100%);
+    background: linear-gradient(#2c083ddf 10%, #7e047ce2 50%, #66077be2 100%);
 }
 
 * {
@@ -88,13 +88,13 @@ html {
 
 .hero-text h1 {
     font-size: clamp(2.5rem, 5vw, 4.0625rem);
-    color: #040844;
+    color: #9ba1f3;
     margin: 0;
 }
 
 .hero-text h2 {
     font-size: clamp(1.6rem, 3.5vw, 2.1875rem);
-    color: #0c28b2e0;
+    color: #a4aac9e0;
     margin: 0;
 }
 
@@ -102,12 +102,12 @@ html {
     top: 70%;
     font-size: clamp(0.95rem, 3vw, 1.2rem);
     font-weight: 550;
-    color: #0b0b32e0;
+    color: #c4c4c4e0;
     margin: 0 0 16px;
 }
 
 .hero-text .blue {
-    color: rgb(69, 14, 14);
+    color: rgb(245, 204, 229);
     font-weight: bold;
 }
 
@@ -167,7 +167,7 @@ html {
 .aboutme1 h2 {
     text-align: justify;
     text-align-last: left;
-    color: rgb(3, 18, 92);
+    color: rgb(186, 193, 229);
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
     font-size: clamp(0.9rem, 4vw, 1.55rem);
@@ -186,9 +186,8 @@ html {
 .aboutme2 h2 {
     text-align: left;
     text-align-last: left;
-    color: rgb(3, 18, 92);
+    color: rgb(181, 189, 230);
     font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
     font-size: clamp(1.4rem, 2vw, 1.35rem);
 }
 
@@ -268,7 +267,7 @@ html {
     padding: 8px 15px;
     font-size: clamp(0.85rem, 4vw, 1rem);
     border-radius: 30px;
-    background: #884fa9;
+    background: #e3dde6;
     color: #ffffff;
     font-weight: 500;
     cursor: pointer;
@@ -277,7 +276,7 @@ html {
 
 
 .skillType {
-    color: #050e88;
+    color: #cfd1ee;
     white-space: nowrap;
     overflow: hidden;
     font-size: clamp(0.9rem, 4vw, 1.0625rem);
@@ -288,7 +287,7 @@ html {
 
 
 .title {
-    color: #040844;
+    color: #3ec9f8;
     font-weight: bold;
     margin-right: 10px;
     font-size: clamp(0.95rem, 4vw, 1.125rem);

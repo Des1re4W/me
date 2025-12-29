@@ -78,14 +78,13 @@
 
 /* TEXT */
 .cert-mean {
-    font-size: 20px;
+    font-size: 2vh;
     font-weight: bold;
     color: aquamarine;
     margin-top: 10px;
 }
 
 .education-wrapper {
-    width: 45%;
     display: flex;
     flex-direction: column;
     /* Margin scales between 20px and 80px, depending on viewport width */
