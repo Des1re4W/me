@@ -178,13 +178,13 @@
 
     .left .box {
         margin-top: 0 !important;
-        margin-top: 8px;
         transform: translateX(0);
     }
 
     .right .box1,
     .right .box2 {
         margin-top: 0px !important;
+                margin-bottom: 1vh !important;
 
     }
 
@@ -200,12 +200,15 @@
     }
 
     .cert-mean {
-        font-size: 5px !important;
-        text-align: left;
+        font-size: 0.8rem !important;
+        text-align: center;
+        margin-top: 0.5rem;
     }
 
     .education-cont {
-        padding: 16px;
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
         transform: translateY(40px);
     }
 
@@ -215,15 +218,31 @@
         text-align: left;
     }
 
+    .profile-section,
     .cert-educ-row {
+        display: flex;
+        flex-direction: column;
+        /* certificate on top, education below */
         align-items: center;
         width: 100%;
-        gap: 30px;
+        gap: 20px;
     }
 
-    .certificate-cont,
+    .certificate-cont {
+        width: 35.5vh !important;
+    }
+
+    .ojt {
+        max-width: 100%;
+        height: auto;
+    }
+
     .education-wrapper {
-        width: 90%;
+        display: flex;
+        flex-direction: row !important;
+        width: 100%;
+        align-items: center;
+        gap: 2vh !important;
     }
 
     .certificate.zoomed {
@@ -291,9 +310,11 @@
     .form-message.show {
         opacity: 1;
     }
-        .contact-socials {
+
+    .contact-socials {
         gap: 15px;
     }
+
     .contact-socials .holo-btn img {
         width: 35px;
         height: 35px;

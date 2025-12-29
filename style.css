@@ -20,11 +20,6 @@ img {
 }
 
 
-body {
-    margin: 0;
-    font-family: 'Courier New', Courier, monospace;
-    background: linear-gradient(#2c083ddf 10%, #7e047ce2 50%, #66077be2 100%);
-}
 
 * {
     box-sizing: border-box;
@@ -191,9 +186,11 @@ html {
     font-size: clamp(1.4rem, 2vw, 1.35rem);
 }
 
+
 body {
     margin: 0;
     font-family: 'Courier New', Courier, monospace;
+    background: linear-gradient(#2c083ddf 30%, #640563e2 50%, #66077be2 100%);
 }
 
 * {
@@ -359,6 +356,7 @@ html {
 }
 
 .hobbies {
+    color: #f88aeb;
     position: absolute;
     align-items: center;
     display: flex;
