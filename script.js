@@ -311,8 +311,6 @@ const contactMessage = document.querySelector('.contact-form');
 const formMessage = document.querySelector('.form-message');
 const inputWrappers = document.querySelectorAll('.input-wrapper');
 
-const allowedDomains = ["gmail.com", "yahoo.com", "outlook.com", "hotmail.com"];
-
 contactMessage.addEventListener('submit', async (e) => {
     e.preventDefault();
     let valid = true;
@@ -337,7 +335,7 @@ contactMessage.addEventListener('submit', async (e) => {
             const email = input.value.trim().toLowerCase();
             const domain = email.split("@")[1];
 
-            if (!domain || !allowedDomains.includes(domain)) {
+            if (!domain.includes(domain)) {
                 tooltip.textContent = "This should be an Email";
                 tooltip.classList.add('show');
                 valid = false;
@@ -356,7 +354,7 @@ contactMessage.addEventListener('submit', async (e) => {
 
         if (response.ok) {
             const fullName = contactMessage.querySelector('#name').value.trim() || "there";
-            const firstName = fullName.split(" ")[0]; // Take the first word as first name
+            const firstName = fullName.split(" ")[0];
             contactMessage.reset();
             showFormMessage(
                 `Hi ${firstName}, thank you for reaching out! I’ve received your message and will respond shortly.`,
