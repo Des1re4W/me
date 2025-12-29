@@ -117,11 +117,8 @@ body.page-loaded .aboutme1 h2 {
 }
 
 .header .nav-links a:hover {
-    margin-left: 2vh;
-    margin-right: 5vh;
     text-decoration: none;
-
-    color: #0a22aa;
+    color: #36b2ff;
 }
 
 .header .nav-links a {

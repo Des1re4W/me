@@ -1,6 +1,6 @@
-/* Contact Section */
+
 .contact {
-    padding: 20vh 20px;
+    padding: 10vh 20px;
     text-align: center;
 }
 
@@ -8,8 +8,8 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 2.5rem;
-    margin-bottom: 5vh;
     color: #b8b4b4;
+    margin-bottom: 5.5vh;
 }
 
 
