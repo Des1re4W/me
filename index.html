@@ -17,7 +17,10 @@
     <link rel="stylesheet" href="box.css">
     <link rel="stylesheet" href="cert.css">
     <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="chat/chat.css">
     <script src="script.js" defer></script>
+    <script src="chat/chat.js" defer></script>
+    <script src="api/chat.js" defer></script>
 </head>
 <header class="header">
     <div class="head">
@@ -201,6 +204,16 @@
             </a>
         </div>
     </section>
+    <!-- Chatbot -->
+    <div id="chatbot">
+        <div id="chatbot-header">💬 Chat with Me <span id="close-chat">×</span></div>
+        <div id="chatbot-body"></div>
+        <div id="chatbot-input-container">
+            <input type="text" id="chatbot-input" placeholder="Type a message...">
+            <button id="chatbot-send">Send</button>
+        </div>
+    </div>
+    <button id="chatbot-toggle">💬</button>
 </body>
 
 </html>
