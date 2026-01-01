@@ -234,7 +234,7 @@ body.page-loaded .aboutme1 h2 {
 }
 
 .contact-form button {
-    background: linear-gradient(90deg, #00bcd4, #4dd0e1);
+    background: linear-gradient(90deg, #290404, #ffffff);
     --x: 50%;
     --y: 50%;
     transition: all 0.3s ease;

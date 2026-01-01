@@ -62,7 +62,7 @@ html {
     display: flex;
     align-items: flex-start;
     max-width: 100%;
-    height: 94vh;
+    height: 100vh;
     overflow: hidden;
     clip-path: polygon(0 0,
             100% 0,
@@ -186,12 +186,51 @@ html {
     font-size: clamp(1.4rem, 2vw, 1.35rem);
 }
 
-
+/* BODY SPACE BACKGROUND */
 body {
     margin: 0;
     font-family: 'Courier New', Courier, monospace;
-    background: linear-gradient(#2c083ddf 30%, #640563e2 50%, #66077be2 100%);
+    overflow-x: hidden;
+    position: relative;
+    background: radial-gradient(ellipse at bottom, #0b0c1e 0%, #150b3d 70%, #000000 100%);
 }
+
+/* STATIC STARS */
+body::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px);
+    background-size: 2px 2px, 3px 3px, 1.5px 1.5px;
+    background-position: 10% 20%, 50% 50%, 80% 70%;
+    z-index: 0;
+}
+.shooting-star {
+    position: absolute;
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(45deg, white, transparent);
+    opacity: 0.8;
+    transform: rotate(45deg);
+    animation: shoot 1s linear forwards;
+    z-index: 0;
+}
+
+@keyframes shoot {
+    0% {
+        transform: translateX(0) translateY(0) rotate(45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-100vw) translateY(100vh) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+
 
 * {
     box-sizing: border-box;
@@ -290,34 +329,21 @@ html {
     font-size: clamp(0.95rem, 4vw, 1.125rem);
 }
 
-
-
 .me-wrapper1 {
     position: absolute;
     top: 60%;
     left: 80%;
     width: min(80vw, 550px);
     height: min(80vw, 550px);
-    border-radius: 50%;
-    padding: 1px;
+    transform: translate(-50%, -50%);
     z-index: 10;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 15px 2px rgba(57, 67, 65, 0.6), 0 0 50px 20px rgba(255, 255, 255, 0.4);
-    transform: translate(-50%, -50%) scaleX(1) translateY(-50px);
-    opacity: 0;
-    transition: transform 1.5s ease, opacity 1.5s ease;
 }
 
 .me {
     width: 100%;
     height: 100%;
-    border-radius: 50%;
-    overflow: hidden;
-    background-color: transparent;
 }
+
 
 .me img {
     width: 100%;

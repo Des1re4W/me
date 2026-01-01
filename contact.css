@@ -124,8 +124,6 @@
     width: 100%;
     padding: 15px 12px;
     font-size: 1rem;
-    color: aliceblue;
-    border: 2px solid #ccc;
     border-radius: 8px;
     outline: none;
     background: transparent;
@@ -151,7 +149,7 @@
 .input-wrapper textarea:not(:placeholder-shown)+label {
     top: -10px;
     font-size: 0.85rem;
-    color: #00bcd4;
+    color: #5dd1e0;
 }
 
 
