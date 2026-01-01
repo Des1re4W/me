@@ -463,21 +463,18 @@ function createShootingStar() {
     const star = document.createElement('div');
     star.classList.add('shooting-star');
 
-    // Random position on screen
     star.style.top = Math.random() * 100 + 'vh';
     star.style.left = Math.random() * 100 + 'vw';
 
-    // Random animation duration
     star.style.animationDuration = (0.5 + Math.random() * 1.5) + 's';
 
-    // Append to body
     document.body.appendChild(star);
 
-    // Remove after animation
     star.addEventListener('animationend', () => {
         star.remove();
     });
 }
 
-// Create a new shooting star every 300ms
 setInterval(createShootingStar, 300);
+
+document.getElementById("year").textContent = new Date().getFullYear();

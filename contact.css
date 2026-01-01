@@ -124,6 +124,8 @@
     width: 100%;
     padding: 15px 12px;
     font-size: 1rem;
+    color: aliceblue;
+    border: 2px solid #ccc;
     border-radius: 8px;
     outline: none;
     background: transparent;
