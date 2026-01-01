@@ -112,7 +112,7 @@
         transform: none;
         text-align: center;
         margin-top: calc(min(90vw, 320px) + 1rem);
-        margin: 25vh auto;
+        margin: 20vh auto;
     }
 
     .study,
