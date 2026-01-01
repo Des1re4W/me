@@ -401,7 +401,7 @@ html {
 
 footer {
   text-align: center;
-  font-size: 2vh;
+  font-size: clamp(9px, 1.2vw, 15px);
   color: #aaa;
-  padding: 20px 0;
+  padding: clamp(12px, 2vh, 24px) 0;
 }
