@@ -22,7 +22,7 @@
 
     /* ===== SECTION 1 ===== */
     .sec1 {
-        height: 100vh;
+        height: 105vh;
         display: flex;
         flex-direction: column;
         align-items: center;
